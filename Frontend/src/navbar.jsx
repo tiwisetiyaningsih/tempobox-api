@@ -36,12 +36,12 @@ function navbar() {
           </ul>
           {/* Tombol kanan */}
           <div className="d-flex">
-            <a href="/login" className="btn btn-outline-primary me-3 px-4" style={{fontSize:'20px'}}>
+            <Link to="/login" className="btn btn-outline-primary me-3 px-4" style={{fontSize:'20px'}}>
               Masuk
-            </a>
-            <a href="/register" className="btn btn-primary px-4" style={{fontSize:'20px'}}>
+            </Link>
+            <Link to="/register" className="btn btn-primary px-4" style={{fontSize:'20px'}}>
               Daftar
-            </a>
+            </Link>
           </div>
         </div>
       </div>
