@@ -11,8 +11,8 @@ export default function Footer() {
           <h4 className="fw-bold mb-4" style={{fontSize:'42px'}}>Hubungi Kami</h4>
           <div className="d-flex justify-content-center gap-4 flex-wrap">
             {/* Kartu Chat WhatsApp */}
-            <Link 
-              to="https://wa.me/6281225351055" 
+            <a 
+              href="https://wa.me/6281225351055" 
               className="text-decoration-none"
               style={{ flexGrow: 1, maxWidth: '300px' }} 
             >
@@ -26,11 +26,11 @@ export default function Footer() {
                   <p className="mb-0 small" style={{fontSize:'18px'}}>+6281225351055</p>
                 </div>
               </div>
-            </Link>
+            </a>
 
             {/* Kartu Email Kami */}
-            <Link 
-              to="mailto:tempobox@gmail.com" 
+            <a 
+              href="mailto:tempobox@gmail.com" 
               className="text-decoration-none"
               style={{ flexGrow: 1, maxWidth: '300px' }} 
             >
@@ -44,7 +44,7 @@ export default function Footer() {
                   <p className="mb-0 small" style={{fontSize:'18px'}}>tempobox@gmail.com</p>
                 </div>
               </div>
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -59,10 +59,10 @@ export default function Footer() {
           <div className="col-md-6 text-start">
             <h5 className="fw-bold text-primary">Tautan cepat</h5>
             <ul className="list-unstyled">
-              <li className="mb-1"><Link to="#" className="text-decoration-none text-muted small">Home</Link></li>
-              <li className="mb-1"><Link to="#keunggulanKami" className="text-decoration-none text-muted small">Keunggulan Kami</Link></li>
-              <li className="mb-1"><Link to="#tentangKami" className="text-decoration-none text-muted small">Tentang Kami</Link></li>
-              <li className="mb-1"><Link to="#footer" className="text-decoration-none text-muted small">Kontak</Link></li>
+              <li className="mb-1"><a href="#" className="text-decoration-none text-muted small">Home</a></li>
+              <li className="mb-1"><a href="#keunggulanKami" className="text-decoration-none text-muted small">Keunggulan Kami</a></li>
+              <li className="mb-1"><a href="#tentangKami" className="text-decoration-none text-muted small">Tentang Kami</a></li>
+              <li className="mb-1"><a href="#footer" className="text-decoration-none text-muted small">Kontak</a></li>
             </ul>
           </div>
         </div>

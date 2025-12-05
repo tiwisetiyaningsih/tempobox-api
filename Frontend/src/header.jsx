@@ -12,13 +12,13 @@ export default function Header() {
         </h1>
         <p style={{fontSize:'18px'}}>Cari, bandingkan, dan hubungi pemilik langsung lewat <br></br>WhatsApp tanpa takut penipuan.</p>
 
-        <Link 
+        <a 
               href="#daftarGudang" 
               className="btn btn-outline-light fw-bold mt-3 py-2 px-4" 
               style={{ border: '2px solid white' }}
             >
               Lihat Daftar Gudang Sekarang
-            </Link>
+            </a>
       </div>
       <img src={hero3d} alt="Hero ilustrasi" className="hero-img"  style={{marginBottom:'50px', width:'433px', height:'415px'}}/>
     </section>
