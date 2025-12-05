@@ -199,12 +199,24 @@ app.put('/users/:id', upload.single("photo_profil"), async (req, res) => {
         }
 
         // Update DB
-        await db.execute(
-            `UPDATE users 
-             SET name=?, email=?, phone=?, role=?, password=?, photo_profil=?
-             WHERE id=?`,
-            [name, email, phone, role, finalPassword, finalPhoto, id]
-        );
+        // Helper: ubah undefined -> null
+const toNull = (v) => (v === undefined ? null : v);
+
+await db.execute(
+    `UPDATE users 
+     SET name=?, email=?, phone=?, role=?, password=?, photo_profil=?
+     WHERE id=?`,
+    [
+        toNull(name),
+        toNull(email),
+        toNull(phone),
+        toNull(role),
+        toNull(finalPassword),
+        toNull(finalPhoto),
+        toNull(id),
+    ]
+);
+
 
         res.json({ message: "Profile berhasil diupdate." });
 

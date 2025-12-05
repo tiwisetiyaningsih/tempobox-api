@@ -100,7 +100,7 @@ const DashboardCustomer = () => {
     };
 
     const handleLihatDetail = (id) => {
-        window.location.to = `/detail_gudang/${id}`;
+        navigate(`/detail_gudang/${id}`);
     };
 
     // 🔍 Filter pencarian

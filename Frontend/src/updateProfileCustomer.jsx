@@ -108,54 +108,56 @@ const UpdateProfileCustomer = () => {
   };
 
   // SIMPAN DATA
-  const handleSaveData = async (e) => {
-    e.preventDefault();
-    if (!user) return alert("User tidak ditemukan!");
+const handleSaveData = async (e) => {
+  e.preventDefault();
+  if (!user) return alert("User tidak ditemukan!");
 
-    const form = new FormData();
-    form.append("name", formState.name);
-    form.append("email", formState.email);
-    form.append("phone", formState.phone);
+  const form = new FormData();
+  form.append("name", formState.name);
+  form.append("email", formState.email);
+  form.append("phone", formState.phone);
 
-    if (formState.password.trim() !== "") {
-      form.append("password", formState.password);
+  if (formState.password.trim() !== "") {
+    form.append("password", formState.password);
+  }
+
+  // 1. Jika upload foto baru → JANGAN kirim removePhoto!
+  if (filePhoto) {
+    form.append("photo_profil", filePhoto);
+  }
+
+  // 2. Jika hapus foto & tidak upload baru
+  if (removePhoto && !filePhoto) {
+    form.append("removePhoto", "true");
+  }
+
+  try {
+    const response = await fetch(`http://localhost:3001/users/${user.id || user._id}`, {
+      method: "PUT",
+      body: form,
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      return alert(err.message || "Gagal update profile");
     }
 
-    // JIKA UPLOAD FOTO BARU
-    if (filePhoto) {
-      form.append("photo_profil", filePhoto);
-      form.append("removePhoto", "true");
-    }
+    // Ambil user terbaru
+    const updatedUser = await fetchUpdatedUser(user.id || user._id);
 
-    // JIKA HAPUS FOTO TANPA UPLOAD BARU
-    if (removePhoto && !filePhoto) {
-      form.append("removePhoto", "true");
-    }
+    // Simpan ke localStorage
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+    setUser(updatedUser);
 
-    try {
-      const response = await fetch(`http://localhost:3001/users/${user.id}`, {
-        method: "PUT",
-        body: form,
-      });
+    alert("Profile berhasil diperbarui!");
+    navigate("/profile_customer");
 
-      if (!response.ok) {
-        const err = await response.json();
-        return alert(err.message || "Gagal update profile");
-      }
+  } catch (error) {
+    console.error(error);
+    alert("Terjadi kesalahan saat update profile.");
+  }
+};
 
-      const updatedUser = await fetchUpdatedUser(user.id);
-
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-      setUser(updatedUser);
-
-      alert("Profile berhasil diperbarui!");
-      navigate(`/profile_customer`);
-
-    } catch (error) {
-      console.error(error);
-      alert("Terjadi kesalahan saat update profile.");
-    }
-  };
 
   const handleBatal = () => {
     navigate(`/profile_customer`);
