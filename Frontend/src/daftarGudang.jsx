@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+
 
 
 export default function DaftarGudang() {
@@ -72,8 +74,8 @@ export default function DaftarGudang() {
                     </div>
                     
                     <div className="d-grid mt-auto">
-                      <a 
-                        href="/login"
+                      <Link  
+                        to="/login"
                         className="btn btn-primary btn-sm" style={{fontSize:'14px',
                           pointerEvents: item.status === "Terisi" ? "none" : "auto",
                           opacity: item.status === "Terisi" ? 0.6 : 1
@@ -81,7 +83,7 @@ export default function DaftarGudang() {
                         
                       >
                         Lihat Detail
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -54,7 +54,7 @@ function DashboardAdmin() {
         </div>
 
         <nav className="nav flex-column flex-grow-1">
-          <Link 
+          <Link  
             to="/admin/dashboard" 
             className={`nav-link d-flex align-items-center gap-2 
               ${isActive('/admin/dashboard') ? 'active-menu' : ''}`}
@@ -62,7 +62,7 @@ function DashboardAdmin() {
             <i className="bi bi-grid-fill"></i> Dashboard
           </Link>
 
-          <Link 
+          <Link  
             to="/admin/dashboard/gudang" 
             className={`nav-link d-flex align-items-center gap-2 
               ${isActive('/admin/dashboard/gudang') ? 'active-menu' : ''}`}
@@ -70,7 +70,7 @@ function DashboardAdmin() {
             <i className="bi bi-archive-fill"></i> Kelola Gudang
           </Link>
 
-          <Link 
+          <Link  
             to="/admin/dashboard/user" 
             className={`nav-link d-flex align-items-center gap-2 
               ${isActive('/admin/dashboard/user') ? 'active-menu' : ''}`}

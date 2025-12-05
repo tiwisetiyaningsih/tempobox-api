@@ -146,7 +146,7 @@ const UpdateProfileCustomer = () => {
       setUser(updatedUser);
 
       alert("Profile berhasil diperbarui!");
-      window.location.href = "/profile_customer";
+      window.location.to = "/profile_customer";
 
     } catch (error) {
       console.error(error);
@@ -155,13 +155,13 @@ const UpdateProfileCustomer = () => {
   };
 
   const handleBatal = () => {
-    window.location.href = "/profile_customer";
+    window.location.to = "/profile_customer";
   };
 
   const handleLogout = () => {
     if (window.confirm("Yakin ingin keluar?")) {
       localStorage.removeItem("user");
-      window.location.href = "/beranda";
+      window.location.to = "/beranda";
     }
   };
 
@@ -170,24 +170,24 @@ const UpdateProfileCustomer = () => {
       {/* NAVBAR */}
       <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom py-2">
         <div className="container-fluid">
-          <a className="navbar-brand fw-bold text-primary ms-4" href="/dashboard_customer">
+          <Link className="navbar-brand fw-bold text-primary ms-4" to="/dashboard_customer">
             <img src={logoTempoBox} alt="TempoBox" style={{ height: "32px" }} />
-          </a>
+          </Link>
 
           <div className="collapse navbar-collapse justify-content-end">
             <ul className="navbar-nav align-items-center">
               <li className="nav-item me-4">
-                <a className="nav-link text-muted" href="/dashboard_customer">Beranda</a>
+                <Link className="nav-link text-muted" to="/dashboard_customer">Beranda</Link>
               </li>
 
               <li className="nav-item me-4">
-                <a className="nav-link text-muted" href="/favorite_customer">
+                <Link className="nav-link text-muted" to="/favorite_customer">
                   <HeartFill size={16} className="me-1" /> Gudang Favorite
-                </a>
+                </Link>
               </li>
 
               <li className="nav-item dropdown me-4">
-                <a className="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" data-bs-toggle="dropdown">
+                <Link className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
                   {getNavbarPhotoUrl() ? (
                     <img
                       src={getNavbarPhotoUrl()}
@@ -198,13 +198,13 @@ const UpdateProfileCustomer = () => {
                   ) : (
                     <i className="bi bi-person-circle fs-2 me-2 text-secondary"></i>
                   )}
-                </a>
+                </Link>
 
                 <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
                   <li>
-                    <a className="dropdown-item py-2" href="/profile_customer">
+                    <Link className="dropdown-item py-2" to="/profile_customer">
                       Profile
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <button className="dropdown-item bg-danger text-white mt-1" onClick={handleLogout}>

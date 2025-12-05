@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HeartFill, Person, BoxArrowRight, ChevronLeft } from "react-bootstrap-icons";
 
@@ -79,9 +79,9 @@ const DetailGudang = () => {
         <div className="d-flex flex-column min-vh-100" style={{ backgroundColor: '#F8F9FA' }}>
             <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom py-3">
                 <div className="container-fluid ms-5">
-                    <a href="/dashboard_customer" className="d-flex align-items-center text-decoration-none text-muted fw-medium">
+                    <Link  to="/dashboard_customer" className="d-flex align-items-center text-decoration-none text-muted fw-medium">
                         <ChevronLeft size={20} className="me-1" /> Kembali ke Beranda
-                    </a>
+                    </Link>
                 </div>
             </nav>
 

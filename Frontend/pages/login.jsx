@@ -68,7 +68,7 @@ function Login() {
       <div className="col-12 col-md-7 d-flex flex-column justify-content-start align-items-start p-4 p-md-5 login-right-col">
         <div className="login-form-container ms-5" style={{ width: "100%", maxWidth: "80%" }}>
           <div className="mb-5">
-            <Link
+            <Link 
               to="/beranda"
               className="d-flex align-items-center gap-2 mb-4 fw-semibold text-decoration-none text-muted"
             >
@@ -132,7 +132,7 @@ function Login() {
 
           <p className="text-center mt-3 mb-0">
             Belum Punya Akun?{" "}
-            <Link to="/register" className="text-primary fw-semibold text-decoration-none">
+            <Link  to="/register" className="text-primary fw-semibold text-decoration-none">
               Daftar
             </Link>
           </p>

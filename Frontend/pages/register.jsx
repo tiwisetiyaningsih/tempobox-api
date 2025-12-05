@@ -66,7 +66,7 @@ function Register() {
         <div className="login-form-container ms-5" style={{ width: '100%', maxWidth: '80%' }}>
 
           <div className="mb-3">
-            <Link
+            <Link 
               to="/beranda"
               className="d-flex align-items-center gap-2 mb-3 fw-semibold text-decoration-none text-muted"
             >
@@ -185,7 +185,7 @@ function Register() {
 
           <p className="text-center mt-3 mb-0">
             Sudah punya akun?{" "}
-            <Link to="/login" className="text-primary fw-semibold text-decoration-none">
+            <Link  to="/login" className="text-primary fw-semibold text-decoration-none">
               Masuk
             </Link>
           </p>

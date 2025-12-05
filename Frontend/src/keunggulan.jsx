@@ -40,13 +40,13 @@ export default function Keunggulan() {
           {features.map((item, index) => (
             <div key={index} className="col-12 col-md-4 col-lg-3">
               <a
-                href="#"
+                to="#"
                 className="btn btn-primary d-flex align-items-center justify-content-center text-center py-3 px-2 w-100"
                 style={{ fontSize: '18px', minHeight: '60px' }}
               >
                 <i className={`${item.icon} fs-5 me-3`}></i> 
                 {item.title}
-              </a>
+              </Link>
             </div>
           ))}
         </div>

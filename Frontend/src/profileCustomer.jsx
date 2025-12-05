@@ -18,7 +18,7 @@ const ProfileCustomer = () => {
     const handleUpdateProfile = () => {
         const isConfirmed = window.confirm("Anda yakin ingin update profil?");
         if (isConfirmed) {
-            window.location.href = "/update_profile_customer"; 
+            window.location.to = "/update_profile_customer"; 
         }
     };
 
@@ -26,7 +26,7 @@ const ProfileCustomer = () => {
         const isConfirmed = window.confirm("Anda yakin ingin keluar?");
         if (isConfirmed) {
             localStorage.removeItem("user");
-            window.location.href = "/beranda"; 
+            window.location.to = "/beranda"; 
         }
     };
 
@@ -49,29 +49,29 @@ const ProfileCustomer = () => {
                 <div className="container-fluid">
 
                     {/* LOGO */}
-                    <a className="navbar-brand fw-bold text-primary ms-4" href="/dashboard_customer">
+                    <Link className="navbar-brand fw-bold text-primary ms-4" to="/dashboard_customer">
                         <img src={logoTempoBox} alt="TempoBox logo" style={{ height: '32px' }} />
-                    </a>
+                    </Link>
 
                     {/* MENU KANAN */}
                     <div className="collapse navbar-collapse justify-content-end">
                         <ul className="navbar-nav align-items-center">
 
                             <li className="nav-item me-4">
-                                <a className="nav-link text-decoration-none text-muted" href="/dashboard_customer">
+                                <Link className="nav-link text-decoration-none text-muted" to="/dashboard_customer">
                                     Beranda
-                                </a>
+                                </Link>
                             </li>
 
                             <li className="nav-item me-4">
-                                <a className="nav-link text-decoration-none text-muted" href="/favorite_customer">
+                                <Link className="nav-link text-decoration-none text-muted" to="/favorite_customer">
                                     <HeartFill className="me-1 text-muted" size={16} /> Gudang Favorite
-                                </a>
+                                </Link>
                             </li>
 
                             {/* PROFILE DROPDOWN */}
                             <li className="nav-item dropdown me-4">
-                                <a className="nav-link dropdown-toggle d-flex align-items-center p-0" href="#" data-bs-toggle="dropdown">
+                                <Link className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
 
                                     {/* FOTO PROFIL (TIDAK UBAH UI, HANYA LOGIC) */}
                                     {getPhotoUrl() ? (
@@ -85,14 +85,14 @@ const ProfileCustomer = () => {
                                         <i className="bi bi-person-circle fs-2 me-2 text-secondary"></i>
                                     )}
 
-                                </a>
+                                </Link>
 
                                 <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
 
                                     <li>
-                                        <a className="dropdown-item py-2 rounded" href="/profile_customer">
+                                        <Link className="dropdown-item py-2 rounded" to="/profile_customer">
                                             <Person size={16} className="me-2 text-secondary" /> Profile
-                                        </a>
+                                        </Link>
                                     </li>
 
                                     <li>
