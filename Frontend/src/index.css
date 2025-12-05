@@ -1,0 +1,121 @@
+/* ================================
+   Global Reset
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================================
+   Root Variables (custom colors)
+================================ */
+:root {
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --dark: #212529;
+  --light: #f8f9fa;
+  --bg: #ffffff;
+  --font-main: "Inter", sans-serif;
+}
+
+/* ================================
+   Body Styling
+================================ */
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg);
+  color: var(--dark);
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+/* ================================
+   Typography
+================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: var(--dark);
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+/* ================================
+   Utility Classes
+================================ */
+
+/* Section spacing */
+.section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Remove underline from all links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================================
+   Image Handling
+================================ */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ================================
+   Buttons
+================================ */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-outline-primary {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--primary);
+  color: #fff;
+}
+
+/* ================================
+   Navbar Fix
+================================ */
+
+/* Prevent navbar items from shifting */
+.navbar-nav .nav-item .nav-link {
+  font-size: 18px;
+  padding: 8px 16px;
+}
+
+/* ================================
+   Footer
+================================ */
+footer {
+  background: var(--dark);
+  color: var(--light);
+  padding: 40px 0;
+  text-align: center;
+}
+
