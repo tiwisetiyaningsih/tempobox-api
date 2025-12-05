@@ -156,7 +156,7 @@ app.get('/users', async (req, res) => {
 app.put('/users/:id', upload.single("photo_profil"), async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, email, phone, password } = req.body;
+        const { name, email, phone, role, password } = req.body;
 
         // PERHATIKAN: removePhoto HARUS dicek pakai req.body TANPA strict compare
         const removePhoto = req.body.removePhoto;
@@ -201,9 +201,9 @@ app.put('/users/:id', upload.single("photo_profil"), async (req, res) => {
         // Update DB
         await db.execute(
             `UPDATE users 
-             SET name=?, email=?, phone=?, password=?, photo_profil=?
+             SET name=?, email=?, phone=?, role=?, password=?, photo_profil=?
              WHERE id=?`,
-            [name, email, phone, finalPassword, finalPhoto, id]
+            [name, email, phone, role, finalPassword, finalPhoto, id]
         );
 
         res.json({ message: "Profile berhasil diupdate." });

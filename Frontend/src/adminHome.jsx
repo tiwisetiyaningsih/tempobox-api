@@ -85,26 +85,18 @@ function AdminHome() {
       </div>
   
       {/* KOTAK JUMLAH IKLAN, JUMLAH GUDANG TERSEDIA, JUMLAH GUDANG TERISI */}
-      <div className="row mb-4">
-        <div className="col-md-4">
-          <div className="card text-center bg-primary text-white p-3">
-            <h5>Jumlah Iklan</h5>
-            <h3 style={{ color: "#FFFFFF" }}>{jumlahIklan}</h3>
-          </div>
+      <div className="d-flex gap-3 mb-4">
+        <div className="stats-box stats-blue shadow-sm flex-fill">
+          <h6 className="text-muted mb-1">Jumlah Iklan</h6>
+          <h3 className="fw-bold" style={{color:'#fd0dc9'}}>{jumlahIklan}</h3>
         </div>
-  
-        <div className="col-md-4">
-          <div className="card text-center bg-success text-white p-3">
-            <h5>Gudang Tersedia</h5>
-            <h3 style={{ color: "#FFFFFF" }}>{jumlahTersedia}</h3>
-          </div>
+        <div className="stats-box stats-purple shadow-sm flex-fill">
+          <h6 className="text-muted mb-1">Gudang Tersedia</h6>
+          <h3 className="fw-bold" style={{color:'#6016a6'}}>{jumlahTersedia}</h3>
         </div>
-  
-        <div className="col-md-4">
-          <div className="card text-center bg-danger text-white p-3">
-            <h5>Gudang Terisi</h5>
-            <h3 style={{ color: "#FFFFFF" }}>{jumlahTerisi}</h3>
-          </div>
+        <div className="stats-box stats-orange shadow-sm flex-fill">
+          <h6 className="text-muted mb-1">Gudang Terisi</h6>
+          <h3 className="fw-bold" style={{color:'#fb591e'}}>{jumlahTerisi}</h3>
         </div>
       </div>
   

@@ -190,4 +190,35 @@
     background-color: #f1f1f1;
     color: #555;
   }
+
+  .stats-box {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .stats-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  
+  .stats-purple::after {
+    background: #6016a6;
+  }
+  
+  .stats-blue::after {
+    background: #fd0dc9; 
+  }
+
+  .stats-orange::after {
+    background: #fb591e; 
+  }
   

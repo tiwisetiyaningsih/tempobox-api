@@ -203,9 +203,9 @@
   }
   
   .stats-red::after {
-    background: #6016a6; /* merah */
+    background: #6016a6;
   }
   
   .stats-blue::after {
-    background: #fd0dc9; /* biru */
+    background: #fd0dc9; 
   }

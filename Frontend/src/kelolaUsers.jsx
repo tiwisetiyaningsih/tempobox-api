@@ -236,11 +236,11 @@ function KelolaUsers() {
                 <div className="d-flex gap-3 mb-4">
                     <div className="stats-box stats-blue shadow-sm flex-fill">
                         <h6 className="text-muted mb-1">Total User</h6>
-                        <h3 className="fw-bold">{totalUser}</h3>
+                        <h3 className="fw-bold" style={{color:'#fd0dc9'}}>{totalUser}</h3>
                     </div>
                     <div className="stats-box stats-red shadow-sm flex-fill">
                         <h6 className="text-muted mb-1">Total Admin</h6>
-                        <h3 className="fw-bold">{totalAdmin}</h3>
+                        <h3 className="fw-bold" style={{color:'#6016a6'}}>{totalAdmin}</h3>
                     </div>
                 </div>
 
