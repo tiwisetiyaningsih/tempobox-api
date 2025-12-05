@@ -1,5 +1,5 @@
 import React from "react";
-import hero3d from "./assets/ilustrasi.svg"; 
+import hero3d from "./assets/Ilustrasi.svg"; 
 import './style.css';
 
 export default function Header() {

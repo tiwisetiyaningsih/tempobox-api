@@ -4,7 +4,7 @@
 }
 
 .login-left-col {
-    background-image: linear-gradient(rgba(25, 122, 255, 0.6), rgba(25, 122, 255, 0.6)), url('./assets/gudang-bg.svg');
+    background-image: linear-gradient(rgba(25, 122, 255, 0.6), rgba(25, 122, 255, 0.6)), url('../src/assets/gudang-bg.svg');
     background-size: cover;
     background-position: center;
     color: white;

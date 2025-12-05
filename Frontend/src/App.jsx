@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import React from 'react'
 import './App.css'
-import './login.css'
-import './register.css'
+import '../pages/login.css'
+import '../pages/register.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Register from "./register.jsx";
-import Login from "./login.jsx";
+import Register from "../pages/register.jsx";
+import Login from "../pages/login.jsx";
 import Navbar from './navbar.jsx'
 import Header from './header.jsx'
 import Keunggulan from './keunggulan.jsx'
