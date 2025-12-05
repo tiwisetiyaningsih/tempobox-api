@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { HeartFill, Search, Person, BoxArrowRight, Link } from "react-bootstrap-icons"; 
+import { HeartFill, Search, Person, BoxArrowRight } from "react-bootstrap-icons"; 
 import logoTempoBox from './assets/Logo.svg';
 import profilDefault from './assets/profil_user.svg';
 import { Link, useNavigate } from "react-router-dom";
+
 
 
 const DashboardCustomer = () => {
@@ -12,6 +13,8 @@ const DashboardCustomer = () => {
     const [gudangList, setGudangList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [favoriteList, setFavoriteList] = useState([]);
+    const navigate = useNavigate();
+
 
     // 🔍 State Search
     const [searchTerm, setSearchTerm] = useState("");
@@ -92,7 +95,7 @@ const DashboardCustomer = () => {
         const isConfirmed = window.confirm("Anda yakin ingin keluar?");
         if (isConfirmed) {
             localStorage.removeItem("user");
-            window.location.to = "/beranda";
+            navigate(`/beranda`);
         }
     };
 

@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HeartFill, Person, BoxArrowRight } from "react-bootstrap-icons"; 
 import logoTempoBox from './assets/Logo.svg';
+import { Link, useNavigate } from "react-router-dom";
 
 const ProfileCustomer = () => {
 
     const [userData, setUserData] = useState(null);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         const stored = localStorage.getItem("user");
@@ -18,7 +21,7 @@ const ProfileCustomer = () => {
     const handleUpdateProfile = () => {
         const isConfirmed = window.confirm("Anda yakin ingin update profil?");
         if (isConfirmed) {
-            window.location.to = "/update_profile_customer"; 
+            navigate(`/update_profile_customer`); 
         }
     };
 
@@ -26,7 +29,7 @@ const ProfileCustomer = () => {
         const isConfirmed = window.confirm("Anda yakin ingin keluar?");
         if (isConfirmed) {
             localStorage.removeItem("user");
-            window.location.to = "/beranda"; 
+            navigate(`/beranda`); 
         }
     };
 

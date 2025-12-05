@@ -2,10 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { HeartFill, Person, BoxArrowRight, PersonFill } from "react-bootstrap-icons";
 import logoTempoBox from "./assets/Logo.svg";
+import { Link, useNavigate } from "react-router-dom";
 
 const UpdateProfileCustomer = () => {
   const [user, setUser] = useState(null);
   const [filePhoto, setFilePhoto] = useState(null);
+  const navigate = useNavigate();
+
   const [removePhoto, setRemovePhoto] = useState(false);
 
   const [formState, setFormState] = useState({
@@ -146,7 +149,7 @@ const UpdateProfileCustomer = () => {
       setUser(updatedUser);
 
       alert("Profile berhasil diperbarui!");
-      window.location.to = "/profile_customer";
+      navigate(`/profile_customer`);
 
     } catch (error) {
       console.error(error);
@@ -155,13 +158,13 @@ const UpdateProfileCustomer = () => {
   };
 
   const handleBatal = () => {
-    window.location.to = "/profile_customer";
+    navigate(`/profile_customer`);
   };
 
   const handleLogout = () => {
     if (window.confirm("Yakin ingin keluar?")) {
       localStorage.removeItem("user");
-      window.location.to = "/beranda";
+      navigate(`/beranda`);
     }
   };
 
