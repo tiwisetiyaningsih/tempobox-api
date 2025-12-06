@@ -1,42 +1,53 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
-const cors = require('cors'); 
-const db = require('./db'); 
-
-db.getConnection()
-  .then(() => console.log("✅ Koneksi ke MySQL berhasil!"))
-  .catch(err => console.error("❌ Koneksi ke MySQL gagal:", err));
-
+const express = require("express");
+const bodyParser = require("body-parser");
+const bcrypt = require("bcryptjs");
+const cors = require("cors");
+const db = require("./db");
 const multer = require("multer");
 const path = require("path");
-
+const fs = require("fs");
 
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 10000;
 
-app.use(cors({
-  origin: process.env.FRONTEND_URL, // URL frontend Vercel
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true
-}));
+/* =========================
+   ✅ ENSURE UPLOAD FOLDER
+========================= */
+if (!fs.existsSync("uploads")) {
+  fs.mkdirSync("uploads");
+}
+
+/* =========================
+   ✅ MYSQL CONNECTION TEST
+========================= */
+db.getConnection()
+  .then(() => console.log("✅ Koneksi ke MySQL berhasil!"))
+  .catch((err) => console.error("❌ Koneksi ke MySQL gagal:", err));
+
+/* =========================
+   ✅ CORS (RENDER + VERCEL)
+========================= */
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL || "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(bodyParser.json());
-
-
-// serve folder uploads
 app.use("/uploads", express.static("uploads"));
 
 app.use((req, res, next) => {
-    req.serverBaseUrl = `${req.protocol}://${req.get("host")}`;
-    next();
+  req.serverBaseUrl = ${req.protocol}://${req.get("host")};
+  next();
 });
 
-app.get('/', (req, res) => {
-  res.send('Backend Railway berhasil!');
+app.get("/", (req, res) => {
+  res.send("✅ Backend Render aktif & aman!");
 });
-
 
 // ========================
 // MULTER SETUP (UPLOAD FOTO)
