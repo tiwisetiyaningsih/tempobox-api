@@ -13,6 +13,9 @@ const port = process.env.PORT || 3001;
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/', (req, res) => {
+  res.send('Backend Railway berhasil!');
+});
 
 // serve folder uploads
 app.use("/uploads", express.static("uploads"));
