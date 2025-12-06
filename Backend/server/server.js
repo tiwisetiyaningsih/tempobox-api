@@ -38,13 +38,13 @@ db.getConnection()
 /* =========================
    ✅ CORS (RENDER + VERCEL)
 ========================= */
-app.use(
-  cors({
-    origin: process.env.FRONTEND_URL || "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+app.options("*", cors()); // ✅ FIX 405 PREFLIGHT
 
 app.use(bodyParser.json());
 app.use("/uploads", express.static("uploads"));
