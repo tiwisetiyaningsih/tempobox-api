@@ -8,7 +8,7 @@ const path = require("path");
 
 
 const app = express();
-const port = 3001; 
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -16,6 +16,11 @@ app.use(bodyParser.json());
 
 // serve folder uploads
 app.use("/uploads", express.static("uploads"));
+
+app.use((req, res, next) => {
+    req.serverBaseUrl = `${req.protocol}://${req.get("host")}`;
+    next();
+});
 
 // ========================
 // MULTER SETUP (UPLOAD FOTO)
@@ -165,7 +170,7 @@ app.put('/users/:id', upload.single("photo_profil"), async (req, res) => {
 
         // Jika upload foto baru
         if (req.file) {
-            newPhotoUrl = `http://localhost:${port}/uploads/${req.file.filename}`;
+            newPhotoUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
         }
 
         // Ambil data user lama
@@ -607,6 +612,6 @@ app.delete('/iklan/:id', async (req, res) => {
 
 
 app.listen(port, () => {
-    console.log(`Server berjalan di http://localhost:${port}`);
+    console.log(`✅ Server berjalan di http://localhost:${port}`);
 });
 
