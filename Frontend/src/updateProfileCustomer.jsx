@@ -117,16 +117,19 @@ const handleSaveData = async (e) => {
   form.append("email", formState.email);
   form.append("phone", formState.phone);
 
+  // 🔥 ROLE OTOMATIS "user"
+  form.append("role", "user");
+
   if (formState.password.trim() !== "") {
     form.append("password", formState.password);
   }
 
-  // 1. Jika upload foto baru → JANGAN kirim removePhoto!
+  // Upload foto baru
   if (filePhoto) {
     form.append("photo_profil", filePhoto);
   }
 
-  // 2. Jika hapus foto & tidak upload baru
+  // Hapus foto
   if (removePhoto && !filePhoto) {
     form.append("removePhoto", "true");
   }
@@ -157,6 +160,7 @@ const handleSaveData = async (e) => {
     alert("Terjadi kesalahan saat update profile.");
   }
 };
+
 
 
   const handleBatal = () => {
