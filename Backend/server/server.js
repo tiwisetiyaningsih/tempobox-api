@@ -41,7 +41,7 @@ app.use(bodyParser.json());
 app.use("/uploads", express.static("uploads"));
 
 app.use((req, res, next) => {
-  req.serverBaseUrl = ${req.protocol}://${req.get("host")};
+  req.serverBaseUrl = `${req.protocol}://${req.get("host")}`;
   next();
 });
 
