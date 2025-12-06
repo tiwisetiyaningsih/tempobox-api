@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
@@ -10,12 +12,11 @@ const path = require("path");
 const app = express();
 const port = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL
+}));
 app.use(bodyParser.json());
 
-app.get('/', (req, res) => {
-  res.send('Backend Railway berhasil!');
-});
 
 // serve folder uploads
 app.use("/uploads", express.static("uploads"));
@@ -24,6 +25,11 @@ app.use((req, res, next) => {
     req.serverBaseUrl = `${req.protocol}://${req.get("host")}`;
     next();
 });
+
+app.get('/', (req, res) => {
+  res.send('Backend Railway berhasil!');
+});
+
 
 // ========================
 // MULTER SETUP (UPLOAD FOTO)
