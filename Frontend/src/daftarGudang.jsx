@@ -11,7 +11,7 @@ export default function DaftarGudang() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/iklan");
+        const response = await axios.get("https://YOUR_RAILWAY_APP_URL/iklan");
         setIklan(response.data);
       } catch (error) {
         console.error("Gagal mengambil data iklan:", error);
@@ -43,7 +43,7 @@ export default function DaftarGudang() {
                   >
                     <img
                       src={
-                       item.gambar_1 ? `http://localhost:3001/uploads/${item.gambar_1.replace("uploads/", "")}`
+                       item.gambar_1 ? `https://YOUR_RAILWAY_APP_URL/uploads/${item.gambar_1.replace("uploads/", "")}`
                         : "No Image"
                         }
                         className="card-img-top"
