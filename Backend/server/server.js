@@ -41,11 +41,8 @@ db.getConnection()
 /* =========================
    ✅ CORS (RENDER + VERCEL)
 ========================= */
-app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
+app.use(cors({ origin: "*", methods: ["GET","POST","PUT","DELETE","OPTIONS"] }));
+app.options("*", cors());
 
 app.options("*", cors()); // ✅ FIX 405 PREFLIGHT
 
