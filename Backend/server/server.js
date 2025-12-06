@@ -12,6 +12,10 @@ const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 10000;
 
+setInterval(() => {
+  db.query("SELECT 1");
+}, 300000); // tiap 5 menit
+
 /* =========================
    ✅ ENSURE UPLOAD FOLDER
 ========================= */
