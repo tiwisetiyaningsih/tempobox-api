@@ -5,6 +5,11 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 const cors = require('cors'); 
 const db = require('./db'); 
+
+db.getConnection()
+  .then(() => console.log("✅ Koneksi ke MySQL berhasil!"))
+  .catch(err => console.error("❌ Koneksi ke MySQL gagal:", err));
+
 const multer = require("multer");
 const path = require("path");
 
