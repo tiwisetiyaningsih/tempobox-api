@@ -1,4 +1,4 @@
-const mysql = require("mysql2");
+const mysql = require("mysql2/promise");
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
@@ -10,16 +10,6 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   connectTimeout: 20000
-});
-
-// Test koneksi saat awal
-pool.getConnection((err, connection) => {
-  if (err) {
-    console.error("❌ Koneksi ke MySQL gagal:", err);
-  } else {
-    console.log("✅ Koneksi ke MySQL berhasil");
-    connection.release();
-  }
 });
 
 module.exports = pool;
