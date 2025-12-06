@@ -13,14 +13,15 @@ const db = mysql.createPool({
 
 // Test koneksi async
 async function testConnection() {
-    try {
-        const connection = await db.getConnection();
-        console.log('Koneksi ke MySQL berhasil!');
-        connection.release();
-    } catch (err) {
-        console.error('Koneksi ke MySQL gagal:', err);
-    }
+  try {
+    const connection = await db.getConnection();
+    console.log('Koneksi ke MySQL berhasil!');
+    connection.release();
+  } catch (err) {
+    console.error('⚠️ Koneksi ke MySQL gagal, tapi server tetap jalan:', err.message);
+  }
 }
+
 
 testConnection();
 
