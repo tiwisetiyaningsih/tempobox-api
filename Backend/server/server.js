@@ -13,7 +13,9 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors({
-  origin: process.env.FRONTEND_URL
+  origin: process.env.FRONTEND_URL, // URL frontend Vercel
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }));
 app.use(bodyParser.json());
 
