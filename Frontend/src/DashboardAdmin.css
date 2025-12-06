@@ -1,0 +1,57 @@
+/* Dashboard_Admin.css */
+
+.admin-dashboard-container {
+  overflow: hidden; /* Mencegah overflow saat sidebar dan main content ada */
+}
+
+.sidebar {
+  width: 250px; /* Lebar sidebar */
+  min-width: 250px; /* Pastikan tidak menyusut terlalu kecil */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sedikit bayangan di samping */
+  background-color: #ffffff !important; /* Warna latar belakang sidebar */
+}
+
+.sidebar-header {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6; /* Garis bawah header */
+}
+
+.sidebar .nav-link {
+  color: #343a40 !important; /* Warna teks default */
+  font-weight: 500;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #e9ecef; /* Warna hover */
+  color: #007bff !important; /* Warna teks hover */
+}
+
+.sidebar .nav-link.active-menu {
+  background-color: #007bff; /* Warna latar belakang untuk menu aktif */
+  color: #ffffff !important; /* Warna teks untuk menu aktif */
+  font-weight: 600;
+}
+
+.sidebar .nav-link.active-menu .bi {
+  color: #ffffff !important; /* Icon warna putih untuk menu aktif */
+}
+
+.sidebar .nav-link .bi {
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+}
+
+.main-content {
+  background-color: #f4f7f6; /* Warna latar belakang area konten utama */
+}
+
+.navbar {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Sedikit bayangan di bawah navbar */
+}
+
+.content-area {
+  overflow-y: auto; /* Memungkinkan scrolling jika konten terlalu panjang */
+}

@@ -1,0 +1,11 @@
+.modal-scroll-custom {
+    max-height: 65vh;
+    overflow-y: auto;
+  }
+  
+.modal-header {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+  }

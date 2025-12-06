@@ -1,0 +1,25 @@
+
+.login-page-split {
+    min-height: 100vh;
+}
+
+.login-left-col {
+    background-image: linear-gradient(rgba(25, 122, 255, 0.6), rgba(25, 122, 255, 0.6)), url('../src/assets/gudang-bg.svg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.login-right-col {
+    background-color: #ffffff;
+}
+
+.bi-chevron-left::before {
+    content: "\f273";
+}
+
+.login-form-container {
+    max-width: 400px;
+    padding: 20px;
+}
+

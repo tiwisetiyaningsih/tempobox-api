@@ -1,0 +1,225 @@
+/* ===============================
+   GLOBAL
+================================ */
+
+.main-content {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;  /* ✅ PENTING */
+  }
+  
+  .content-area {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;  /* ✅ PENTING */
+    padding: 16px;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden; /* ANTI LAYOUT MELEBAR */
+  }
+  
+  /* ===============================
+     HEADER & BOX
+  ================================ */
+  h3 {
+    font-size: 20px;
+    color: #212121;
+  }
+  
+  .kotak-abu {
+    padding: 2px 8px;
+    border-radius: 5px;
+    min-width: 250px;
+    background-color: #F2F4F8;
+    color: #838383;
+  }
+  
+  .kotak-putih {
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  
+  /* ===============================
+     WRAPPER SCROLL (PALING PENTING)
+  ================================ */
+  .table-container {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .table-scroll-wrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    border-radius: 8px;
+    background: white;
+  }
+  
+  /* ===============================
+     TABEL
+  ================================ */
+  .custom-table {
+    width: max_content;
+    min-width: 1000px; /* BIAR TIDAK MAKSA LAYOUT */
+    border-collapse: collapse;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  /* HEADER */
+  .custom-table thead th {
+    background-color: #197AFF;
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+    padding: 10px;
+  }
+  
+  /* BODY */
+  .custom-table tbody tr {
+    background-color: #ffffff;
+  }
+  
+  .custom-table tbody td {
+    border-bottom: 1px solid #BAD7FF;
+    vertical-align: middle;
+    padding: 8px;
+  }
+
+  .custom-table {
+    table-layout: fixed;
+    width: 100%;
+  }
+  
+  /* Lebar tiap kolom */
+  .custom-table th:nth-child(1),
+  .custom-table td:nth-child(1) {
+    width: 20px;   /* No */
+    text-align: center;
+  }
+  
+  .custom-table th:nth-child(2),
+  .custom-table td:nth-child(2) {
+    width: 100px;  /* Nama Gudang */
+  }
+  
+  .custom-table th:nth-child(3),
+  .custom-table td:nth-child(3) {
+    width: 100px;  /* Lokasi */
+  }
+  
+  .custom-table th:nth-child(4),
+  .custom-table td:nth-child(4) {
+    width: 100px;  /* Harga */
+  }
+  
+  .custom-table th:nth-child(5),
+  .custom-table td:nth-child(5) {
+    width: 80px;  /* Status */
+    text-align: center;
+  }
+  
+  .custom-table th:nth-child(6),
+  .custom-table td:nth-child(6) {
+    width: 80px;  /* Aksi */
+    text-align: center;
+  }
+  
+  /* Supaya teks tidak bikin kolom melebar */
+  .custom-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
+  /* ===============================
+     KOLOM KHUSUS
+  ================================ */
+  
+  /* HARGA & LUAS */
+  .col-harga,
+  .col-luas {
+    white-space: nowrap;
+  }
+  
+  /* ===============================
+     TENGAH
+  ================================ */
+  .isi-center {
+    text-align: center;
+  }
+  
+  /* ===============================
+   STATUS BADGE
+================================ */
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 90px;
+  display: inline-block;
+}
+
+.status-tersedia {
+  background-color: #e7f8ef;
+  color: #1b8f5a;
+  border: 1px solid #9fe0c0;
+}
+
+.status-terisi {
+  background-color: #fdecea;
+  color: #c0392b;
+  border: 1px solid #f5b7b1;
+}
+
+.status-default {
+  background-color: #f1f1f1;
+  color: #555;
+}
+
+  .stats-box {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    position: relative;
+    text-align: center;
+  }
+  
+  .stats-box::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+  
+  .stats-purple::after {
+    background: #6016a6;
+  }
+  
+  .stats-blue::after {
+    background: #fd0dc9; 
+  }
+
+  .stats-orange::after {
+    background: #fb591e; 
+  }
+  
+  

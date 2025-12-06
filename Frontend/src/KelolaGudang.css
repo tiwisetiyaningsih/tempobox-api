@@ -1,0 +1,289 @@
+/* ===============================
+   GLOBAL
+================================ */
+
+.main-content {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;  /* ✅ PENTING */
+}
+
+.content-area {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;  /* ✅ PENTING */
+  padding: 16px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden; /* ANTI LAYOUT MELEBAR */
+}
+
+/* ===============================
+   HEADER & BOX
+================================ */
+h3 {
+  font-size: 20px;
+  color: #212121;
+}
+
+.kotak-abu {
+  padding: 2px 8px;
+  border-radius: 5px;
+  min-width: 250px;
+  background-color: #F2F4F8;
+  color: #838383;
+}
+
+.kotak-putih {
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ===============================
+   WRAPPER SCROLL (PALING PENTING)
+================================ */
+.table-container {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.table-scroll-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  border-radius: 8px;
+  background: white;
+}
+
+/* ===============================
+   TABEL
+================================ */
+.custom-table {
+  width: max-content;
+  min-width: 1200px; /* BIAR TIDAK MAKSA LAYOUT */
+  border-collapse: collapse;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* HEADER */
+.custom-table thead th {
+  background-color: #197AFF;
+  color: #ffffff;
+  border: none;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 500;
+  padding: 10px;
+}
+
+/* BODY */
+.custom-table tbody tr {
+  background-color: #ffffff;
+}
+
+.custom-table tbody td {
+  border-bottom: 1px solid #BAD7FF;
+  vertical-align: middle;
+  padding: 8px;
+}
+
+/* ===============================
+   KOLOM KHUSUS
+================================ */
+
+/* FOTO */
+.foto-gudang {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.custom-table th:nth-child(1),
+.custom-table td:nth-child(1) {
+  width: 60px !important;   /* No */
+  text-align: center;
+}
+
+.custom-table th:nth-child(2),
+.custom-table td:nth-child(2) {
+  width: 90px !important;  /* Foto */
+}
+
+.custom-table th:nth-child(3),
+.custom-table td:nth-child(3) {
+  width: 160px !important; /* Nama */
+}
+
+.custom-table th:nth-child(4),
+.custom-table td:nth-child(4) {
+  width: 260px !important; /* Deskripsi */
+}
+
+.custom-table th:nth-child(5),
+.custom-table td:nth-child(5) {
+  width: 160px !important; /* Lokasi */
+  text-align: center;
+}
+
+.custom-table th:nth-child(6),
+.custom-table td:nth-child(6) {
+  width: 110px !important; /* Luas */
+  text-align: center;
+}
+
+  
+  /* Supaya teks tidak bikin kolom melebar */
+  .custom-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+/* DESKRIPSI & FASILITAS */
+.col-deskripsi {
+  max-width: 220px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* HARGA & LUAS */
+.col-harga,
+.col-luas {
+  white-space: nowrap;
+}
+
+/* ===============================
+   TENGAH
+================================ */
+.isi-center {
+  text-align: center;
+}
+
+/* ===============================
+   BUTTON AKSI
+================================ */
+.aksi-btn-icon {
+  border: none !important;
+  background: transparent !important;
+  padding: 4px;
+}
+
+.aksi-btn-icon i {
+  font-size: 16px;
+}
+
+.aksi-btn-icon:hover i {
+  transform: scale(1.15);
+  transition: 0.15s;
+}
+
+/* ===============================
+   MODAL
+================================ */
+.modal-dialog {
+  max-width: 780px;
+}
+
+.modal-content {
+  border-radius: 12px;
+}
+
+.modal-header {
+  padding: 10px 16px;
+}
+
+.modal-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.modal-header .btn-close {
+  transform: scale(0.8);
+}
+
+.modal label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.modal .form-control,
+.modal .form-select {
+  font-size: 14px;
+  padding: 6px 10px;
+  height: 36px;
+  border-radius: 8px;
+}
+
+.modal input[type="file"] {
+  font-size: 12px;
+  padding: 6px;
+}
+
+.modal textarea.form-control {
+  font-size: 13px;
+  min-height: 70px;
+}
+
+.modal .row > div {
+  margin-bottom: 10px;
+}
+
+.modal-footer {
+  padding: 10px 16px;
+}
+
+.modal-footer .btn {
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.modal-body {
+  scrollbar-width: thin;
+  padding: 14px 16px;
+  overflow-y: auto;
+  max-height: 70vh;
+}
+
+/* ===============================
+   STATUS BADGE
+================================ */
+.status-badge {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 90px;
+  display: inline-block;
+}
+
+.status-tersedia {
+  background-color: #e7f8ef;
+  color: #1b8f5a;
+  border: 1px solid #9fe0c0;
+}
+
+.status-terisi {
+  background-color: #fdecea;
+  color: #c0392b;
+  border: 1px solid #f5b7b1;
+}
+
+.status-default {
+  background-color: #f1f1f1;
+  color: #555;
+}
