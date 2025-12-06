@@ -1,14 +1,18 @@
 const mysql = require('mysql2/promise');
 
+function stripQuotes(v) {
+  return v?.replace(/^["']|["']$/g, '');
+}
+
 const db = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME,
-    port: 3306,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 0
+  host: stripQuotes(process.env.DB_HOST),
+  user: stripQuotes(process.env.DB_USER),
+  password: stripQuotes(process.env.DB_PASS),
+  database: stripQuotes(process.env.DB_NAME),
+  port: 3306,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 // Test koneksi async
