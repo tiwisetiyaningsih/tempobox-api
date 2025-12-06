@@ -27,8 +27,13 @@ if (!fs.existsSync("uploads")) {
    ✅ MYSQL CONNECTION TEST
 ========================= */
 db.getConnection()
-  .then(() => console.log("✅ Koneksi ke MySQL berhasil!"))
-  .catch((err) => console.error("❌ Koneksi ke MySQL gagal:", err));
+  .then(conn => {
+    console.log("✅ Koneksi ke MySQL berhasil!");
+    conn.release();
+  })
+  .catch(err => {
+    console.error("❌ Koneksi ke MySQL gagal:", err);
+  });
 
 /* =========================
    ✅ CORS (RENDER + VERCEL)
