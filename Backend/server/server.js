@@ -8,6 +8,8 @@ const db = require("./db");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
+const router = express.Router();
+
 
 const app = express();
 const port = process.env.PORT || 3000;
