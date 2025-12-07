@@ -11,7 +11,7 @@ export default function DaftarGudang() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("https://YOUR_RAILWAY_APP_URL/iklan");
+        const response = await axios.get("https://https://tempobox-api.up.railway.app/iklan");
         setIklan(response.data);
       } catch (error) {
         console.error("Gagal mengambil data iklan:", error);
