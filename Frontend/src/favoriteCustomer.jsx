@@ -121,7 +121,7 @@ const FavoriteCustomer = () => {
                         <img src={logoTempoBox} className="logoTempoBox" alt="TempoBox logo" style={{ height: '32px' }} />
                     </Link>
             
-                    {/* Toggler (MOBILE MENU BUTTON) */}
+                    {/* Toggler */}
                     <button
                         className="navbar-toggler me-2"
                         type="button"
@@ -134,27 +134,42 @@ const FavoriteCustomer = () => {
                         <span className="navbar-toggler-icon"></span>
                     </button>
             
-                    {/* COLLAPSIBLE MENU */}
-                    <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul className="navbar-nav align-items-lg-center align-items-start text-start">
+                    {/* MENU */}
+                    <div
+                        className="
+                            collapse navbar-collapse 
+                            justify-content-lg-end 
+                            justify-content-center 
+                            text-center
+                        "
+                        id="navbarNav"
+                    >
+                        <ul
+                            className="
+                                navbar-nav 
+                                align-items-lg-center 
+                                align-items-center 
+                                gap-lg-3 
+                                gap-2
+                            "
+                        >
             
-                            <li className="nav-item me-lg-4">
+                            <li className="nav-item">
                                 <Link className="nav-link text-muted" to="/dashboard_customer">
                                     Beranda
                                 </Link>
                             </li>
             
-                            <li className="nav-item me-lg-4">
+                            <li className="nav-item">
                                 <Link className="nav-link fw-semibold text-primary" to="/favorite_customer">
                                     <HeartFill className="me-1 text-primary" size={16} /> Gudang Favorite
                                 </Link>
                             </li>
             
-                            {/* DROPDOWN PROFILE */}
-                            <li className="nav-item dropdown me-lg-4 mt-2 mt-lg-0">
-            
+                            {/* DROPDOWN */}
+                            <li className="nav-item dropdown mt-2 mt-lg-0">
                                 <Link
-                                    className="nav-link dropdown-toggle d-flex align-items-center p-0"
+                                    className="nav-link dropdown-toggle d-flex align-items-center justify-content-center p-0"
                                     to="#"
                                     role="button"
                                     data-bs-toggle="dropdown"
@@ -171,7 +186,7 @@ const FavoriteCustomer = () => {
                                     )}
                                 </Link>
             
-                                <ul className="dropdown-menu dropdown-menu-end shadow-lg p-2">
+                                <ul className="dropdown-menu shadow-lg p-2 text-center">
                                     <li>
                                         <Link className="dropdown-item py-2" to="/profile_customer">
                                             <Person size={16} className="me-2" /> Profile
@@ -186,12 +201,12 @@ const FavoriteCustomer = () => {
                                         </button>
                                     </li>
                                 </ul>
-            
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
+
             
 
             {/* MAIN */}
@@ -232,7 +247,7 @@ const FavoriteCustomer = () => {
                                            <img
                                                 src={
                                                     gudang.gambar_1
-                                                    ? `http://localhost:3001/uploads/${gudang.gambar_1.replace("uploads/", "")}`
+                                                    ? `https://tempobox-api.up.railway.app/uploads/${gudang.gambar_1.replace("uploads/", "")}`
                                                     : "No Image"
                                                 }
                                                 className="card-img-top"
