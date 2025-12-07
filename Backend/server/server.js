@@ -17,10 +17,8 @@ const port = process.env.PORT || 3000;
 // ✅ CORS PERTAMA (SEBELUM ROUTES)
 // =========================
 app.use(cors({
-  origin: ["https://https://tempobox.up.railway.app/", "http://localhost:3000"], // Ganti Vercel URL-mu
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  origin: "*",   // sementara boleh semua
+  methods: "GET,POST,PUT,DELETE"
 }));
 
 // ✅ OPTIONS handler GLOBAL (SEBELUM bodyParser)
