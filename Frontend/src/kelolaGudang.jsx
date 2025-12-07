@@ -146,7 +146,7 @@ export default function KelolaGudang() {
                     <td>
                       {gudang.gambar_1 ? (
                         <img
-                          src={`http://localhost:3001/uploads/${gudang.gambar_1}`}
+                          src={`https://tempobox-api.up.railway.app/uploads/${gudang.gambar_1}`}
                           className="foto-gudang"
                           alt="Gudang"
                         />
