@@ -78,7 +78,7 @@ function KelolaUsers() {
   };
 
   useEffect(() => {
-    fetch("http://tempobox-api.up.railway.app/users")
+    fetch("https://tempobox-api.up.railway.app/users")
         .then(res => res.json())
         .then(data => setUsers(data))
         .catch(err => console.error("FETCH USERS ERROR:", err));
@@ -101,7 +101,7 @@ function KelolaUsers() {
     }
 
     try {
-        const res = await fetch("http://tempobox-api.up.railway.app/users", {
+        const res = await fetch("https://tempobox-api.up.railway.app/users", {
         method: "POST",
         body: form,
         });
