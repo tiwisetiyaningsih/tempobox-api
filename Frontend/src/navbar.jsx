@@ -7,14 +7,14 @@ function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white py-3">
+    <nav className="navbar navbar-expand-lg navbar-light bg-white py-2">
       <div className="container">
         {/* Logo */}
         <Link className="navbar-brand fw-bold text-primary" to="/">
           <img
             src={logoTempoBox}
             alt="TempoBox logo"
-            style={{ width: "165px", height: "52px" }}
+            style={{ width: "125px", height: "32px" }}
           />
         </Link>
 
@@ -35,24 +35,24 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto align-items-lg-center">
             <li className="nav-item">
-              <a className="nav-link me-3" href="#home" style={{ fontSize: "20px" }}>Home</a>
+              <a className="nav-link me-3" href="#home" style={{ fontSize: "18px" }}>Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link me-3" href="#keunggulanKami" style={{ fontSize: "20px" }}>Keunggulan Kami</a>
+              <a className="nav-link me-3" href="#keunggulanKami" style={{ fontSize: "18px" }}>Keunggulan Kami</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link me-3" href="#tentangKami" style={{ fontSize: "20px" }}>Tentang Kami</a>
+              <a className="nav-link me-3" href="#tentangKami" style={{ fontSize: "18px" }}>Tentang Kami</a>
             </li>
             <li className="nav-item me-lg-4">
-              <a className="nav-link" href="#footer" style={{ fontSize: "20px" }}>Kontak</a>
+              <a className="nav-link" href="#footer" style={{ fontSize: "18px" }}>Kontak</a>
             </li>
 
             {/* Tombol login/daftar */}
-            <li className="nav-item d-flex gap-2 mt-2 mt-lg-0">
-              <Link to="/login" className="btn btn-outline-primary px-4" style={{ fontSize: "20px" }}>
+            <li className="nav-item d-flex gap-3 mt-2 mt-lg-0">
+              <Link to="/login" className="btn btn-outline-primary px-3" style={{ fontSize: "18px" }}>
                 Masuk
               </Link>
-              <Link to="/register" className="btn btn-primary px-4" style={{ fontSize: "20px" }}>
+              <Link to="/register" className="btn btn-primary px-3" style={{ fontSize: "18px" }}>
                 Daftar
               </Link>
             </li>
