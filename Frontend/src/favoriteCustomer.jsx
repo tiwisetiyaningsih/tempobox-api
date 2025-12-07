@@ -5,7 +5,7 @@ import logoTempoBox from './assets/Logo.svg';
 import gudang1 from './assets/gudang.svg'; 
 import profil_user from './assets/profil_user.svg';
 import { Link, useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 
 const FavoriteCustomer = () => {
 
@@ -66,22 +66,39 @@ const FavoriteCustomer = () => {
     // =======================================
     const handleRemoveFavorite = async (gudangId) => {
         if (!userData) return;
-
-        const confirmDelete = window.confirm("Hapus dari gudang favorite?");
-        if (!confirmDelete) return;
-
+    
+        const result = await Swal.fire({
+            title: "Hapus Gudang dari Favorit?",
+            text: "Apakah kamu yakin ingin menghapus gudang ini dari daftar favorit?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Ya, Hapus",
+            cancelButtonText: "Batal",
+        });
+    
+        if (!result.isConfirmed) return;
+    
         try {
             await fetch(`https://tempobox-api.up.railway.app/favorite/${userData.id}/${gudangId}`, {
                 method: "DELETE",
             });
-
+    
             // Update UI
             setFavoriteGudang(favoriteGudang.filter(g => g.id !== gudangId));
-
+    
+            Swal.fire({
+                title: "Berhasil!",
+                text: "Gudang telah dihapus dari favorit.",
+                icon: "success",
+                timer: 1500,
+                showConfirmButton: false,
+            });
+    
         } catch (error) {
             console.error("ERROR REMOVE FAVORITE:", error);
         }
     };
+
 
     // =======================================
     // LOGOUT
