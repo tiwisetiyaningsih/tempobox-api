@@ -237,8 +237,7 @@ const FavoriteCustomer = () => {
                 {/* GRID KARTU GUDANG */}
                 <div className="container-fluid">
                     {filteredGudang.length > 0 ? (
-                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
-
+                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5 justify-content-center">
                             {filteredGudang.map((gudang) => (
                                 <div className="col" key={gudang.id}>
                                     <div className="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
