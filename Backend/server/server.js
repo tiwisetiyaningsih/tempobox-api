@@ -39,8 +39,10 @@ db.getConnection()
 /* =========================
    ✅ CORS (RENDER + VERCEL)
 ========================= */
-app.use(cors({ origin: "*", methods: ["GET","POST","PUT","DELETE","OPTIONS"] }));
-app.options("*", cors());
+const cors = require("cors");
+app.use(cors({
+  origin: "*"
+}));
 
 app.options("*", cors()); // ✅ FIX 405 PREFLIGHT
 
@@ -106,48 +108,29 @@ app.post('/register', async (req, res) => {
 // -------------------------------------------------------------------
 // Endpoint Login (Dengan Logging Ekstrem)
 // -------------------------------------------------------------------
-app.post('/login', async (req, res) => {
-    console.log('--- ATTEMPT: LOGIN RECEIVED ---');
-    const { email, password } = req.body;
+app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
 
-    try {
-        // Tambahkan role dan photo_profil
-        const [rows] = await db.execute(
-            'SELECT id, name, email, password, phone, role, photo_profil FROM users WHERE email = ?',
-            [email]
-        );
-        
-        if (rows.length === 0) {
-            return res.status(401).json({ message: 'Email atau kata sandi salah.' });
-        }
+  try {
+    const [rows] = await db.query(
+      "SELECT * FROM users WHERE email = ? AND password = ?",
+      [email, password]
+    );
 
-        const user = rows[0];
-        const isMatch = await bcrypt.compare(password, user.password);
-
-        if (!isMatch) {
-            return res.status(401).json({ message: 'Email atau kata sandi salah.' });
-        }
-
-        const safeUser = {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            phone: user.phone,
-            role: user.role,               // <-- DITAMBAHKAN
-            photo_profil: user.photo_profil // <-- DITAMBAHKAN
-        };
-        
-        res.status(200).json({
-            message: 'Login berhasil',
-            user: safeUser,
-        });
-
-    } catch (error) {
-        console.error("LOGIN ERROR:", error);
-        res.status(500).json({ message: 'Terjadi kesalahan server saat login.' });
+    if (rows.length === 0) {
+      return res.status(401).json({ message: "Email atau password salah" });
     }
-});
 
+    res.json({
+      message: "Login berhasil",
+      user: rows[0]
+    });
+
+  } catch (err) {
+    console.error("LOGIN ERROR:", err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
 // ===========================
 // GET USER BY ID
 // ===========================
