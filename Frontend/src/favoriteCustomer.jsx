@@ -34,7 +34,7 @@ const FavoriteCustomer = () => {
     const loadFavoriteGudang = async (id_user) => {
         try {
             // Ambil daftar favorite user → hanya ID gudang
-            const favRes = await fetch(`http://tempobox-api.up.railway.app/favorite/${id_user}`);
+            const favRes = await fetch(`https://tempobox-api.up.railway.app/favorite/${id_user}`);
             const favData = await favRes.json();  
             // hasil: [ { id_gudang }, { id_gudang } ]
 
@@ -46,7 +46,7 @@ const FavoriteCustomer = () => {
             }
 
             // Ambil semua gudang
-            const gudangRes = await fetch(`http://tempobox-api.up.railway.app/gudang`);
+            const gudangRes = await fetch(`https://tempobox-api.up.railway.app/gudang`);
             const allGudang = await gudangRes.json();
 
             // Filter gudang yang ada di favorite
@@ -71,7 +71,7 @@ const FavoriteCustomer = () => {
         if (!confirmDelete) return;
 
         try {
-            await fetch(`http://tempobox-api.up.railway.app/favorite/${userData.id}/${gudangId}`, {
+            await fetch(`https://tempobox-api.up.railway.app/favorite/${userData.id}/${gudangId}`, {
                 method: "DELETE",
             });
 
@@ -200,7 +200,7 @@ const FavoriteCustomer = () => {
                                            <img
                                                 src={
                                                     gudang.gambar_1
-                                                    ? `http://localhost:3001/uploads/${gudang.gambar_1.replace("uploads/", "")}`
+                                                    ? `https://localhost:3001/uploads/${gudang.gambar_1.replace("uploads/", "")}`
                                                     : "No Image"
                                                 }
                                                 className="card-img-top"
