@@ -298,9 +298,7 @@ function KelolaUsers() {
                                 <td>
                                     <img 
                                         src={
-                                            u.photo_profil?.startsWith("https")
-                                                ? u.photo_profil
-                                                : `https://tempobox-api.up.railway.app/uploads/${u.photo_profil}`
+                                            u.photo_profil
                                             }
                                         style={{ width: '80px', height: '60px', borderRadius: '5px'}}
                                         alt="Profil"
