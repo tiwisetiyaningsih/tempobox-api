@@ -300,7 +300,7 @@ function KelolaUsers() {
                                         src={
                                             u.photo_profil?.startsWith("http")
                                                 ? u.photo_profil
-                                                : `http://localhost:3001/uploads/${u.photo_profil}`
+                                                : `https://tempobox-api.up.railway.app/uploads/${u.photo_profil}`
                                             }
                                         style={{ width: '100px', height: '100px'}}
                                         alt="Profil"
