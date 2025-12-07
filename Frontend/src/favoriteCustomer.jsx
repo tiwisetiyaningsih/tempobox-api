@@ -127,53 +127,84 @@ const FavoriteCustomer = () => {
             {/* NAVBAR / HEADER */}
             <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom py-2">
                 <div className="container-fluid">
-                    <Link  className="navbar-brand fw-bold text-primary ms-4" to="/dashboard_customer">
-                        <img src={logoTempoBox} className="logoTempoBox" alt="TempoBox logo" style={{ height: '32px' }} />
+            
+                    {/* LOGO */}
+                    <Link className="navbar-brand fw-bold text-primary ms-2" to="/dashboard_customer">
+                        <img src={logoTempoBox} alt="TempoBox logo" style={{ height: "32px" }} />
                     </Link>
-
+            
+                    {/* TOGGLER (HAMBURGER MENU) */}
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+            
+                    {/* MENU */}
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav align-items-center">
+            
+                            {/* Menu Beranda */}
                             <li className="nav-item me-4">
-                                <Link  className="nav-link text-decoration-none text-muted" to="/dashboard_customer">Beranda</Link>
-                            </li>
-                            <li className="nav-item me-4">
-                                <Link  className="nav-link text-decoration-none text-primary fw-semibold" to="/favorite_customer">
-                                    <HeartFill className="me-1 text-primary" size={16} /> Gudang Favorite
+                                <Link className="nav-link text-primary fw-semibold" to="/dashboard_customer">
+                                    Beranda
                                 </Link>
                             </li>
-
-                            <li className="nav-item dropdown me-4">
-                                <Link  className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
-                                    {userData?.photo_profil ? (
-                                        <img src={`https://tempobox-api.up.railway.app/uploads/${userData.photo_profil.replace("uploads/", "")}`}
-                                             alt="User Avatar"
-                                             className="rounded-circle me-2"
-                                             style={{ width: '35px', height: '35px', objectFit: "cover" }} />
+            
+                            {/* Menu Favorite */}
+                            <li className="nav-item me-4">
+                                <Link className="nav-link text-muted" to="/favorite_customer">
+                                    <HeartFill size={16} className="me-1 text-muted" />
+                                    Gudang Favorite
+                                </Link>
+                            </li>
+            
+                            {/* Profile Dropdown */}
+                            <li className="nav-item dropdown me-2">
+                                <Link
+                                    className="nav-link dropdown-toggle d-flex align-items-center p-0"
+                                    to="#"
+                                    data-bs-toggle="dropdown"
+                                >
+                                    {getPhotoUrl() ? (
+                                        <img
+                                            src={getPhotoUrl()}
+                                            alt="User Avatar"
+                                            className="rounded-circle me-2"
+                                            style={{ width: "35px", height: "35px", objectFit: "cover" }}
+                                        />
                                     ) : (
                                         <i className="bi bi-person-circle fs-2 me-2 text-secondary"></i>
                                     )}
                                 </Link>
-
-                                <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg" aria-labelledby="navbarDropdown" style={{ border: 'none' }}>
+            
+                                <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
                                     <li>
-                                        <Link  className="dropdown-item py-2 rounded" to="/profile_customer">
+                                        <Link className="dropdown-item py-2 rounded" to="/profile_customer">
                                             <Person size={16} className="me-2 text-secondary" /> Profile
                                         </Link>
                                     </li>
                                     <li>
-                                        <button className="dropdown-item py-2 rounded text-white bg-danger mt-1 fw-medium"
-                                            onClick={handleLogout}>
+                                        <button
+                                            className="dropdown-item py-2 rounded text-white bg-danger mt-1 fw-medium"
+                                            onClick={handleLogout}
+                                        >
                                             <BoxArrowRight size={16} className="me-2" /> Keluar
                                         </button>
                                     </li>
                                 </ul>
                             </li>
-
+            
                         </ul>
                     </div>
                 </div>
             </nav>
-
             {/* MAIN */}
             <main className="flex-grow-1 p-4 d-flex flex-column align-items-center justify-content-start">
 
