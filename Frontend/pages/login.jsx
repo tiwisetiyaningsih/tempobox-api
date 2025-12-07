@@ -71,7 +71,7 @@ function Login() {
         <div className="login-form-container ms-5" style={{ width: "100%", maxWidth: "80%" }}>
           <div className="mb-5">
             <Link 
-              to="/beranda"
+              to="/"
               className="d-flex align-items-center gap-2 mb-4 fw-semibold text-decoration-none text-muted"
             >
               <i className="bi bi-chevron-left"></i>
