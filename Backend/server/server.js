@@ -13,6 +13,25 @@ const fs = require("fs");
 const app = express();
 const port = process.env.PORT || 3000;
 
+// =========================
+// ✅ CORS PERTAMA (SEBELUM ROUTES)
+// =========================
+app.use(cors({
+  origin: ["https://your-vercel-app.vercel.app", "http://localhost:3000"], // Ganti Vercel URL-mu
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+// ✅ OPTIONS handler GLOBAL (SEBELUM bodyParser)
+app.options("*", cors());
+
+// =========================  
+// ✅ BODY PARSER SETELAH CORS
+// =========================
+app.use(bodyParser.json({ limit: "10mb" }));
+app.use(bodyParser.urlencoded({ extended: true }));
+
 setInterval(() => {
   db.query("SELECT 1");
 }, 300000); // tiap 5 menit
@@ -36,17 +55,8 @@ db.getConnection()
     console.error("❌ Koneksi ke MySQL gagal:", err);
   });
 
-/* =========================
-   ✅ CORS (RENDER + VERCEL)
-========================= */
-const cors = require("cors");
-app.use(cors({
-  origin: "*"
-}));
-
 app.options("*", cors()); // ✅ FIX 405 PREFLIGHT
 
-app.use(bodyParser.json());
 app.use("/uploads", express.static("uploads"));
 
 app.use((req, res, next) => {
