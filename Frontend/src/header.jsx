@@ -5,22 +5,37 @@ import './style.css';
 export default function Header() {
   return (
     <section className="hero-section text-white">
+      {/* Overlay biru full hero */}
       <div className="overlay"></div>
-      <div className="container position-relative">
-        <h1 className="fw-bold display-5 mb-3" style={{fontSize:'54px'}}>
-          Temukan Gudang Aman di <br /> Bandung
-        </h1>
-        <p style={{fontSize:'18px'}}>Cari, bandingkan, dan hubungi pemilik langsung lewat <br></br>WhatsApp tanpa takut penipuan.</p>
 
-        <a 
-              href="#daftarGudang" 
-              className="btn btn-outline-light fw-bold mt-3 py-2 px-4" 
-              style={{ border: '2px solid white' }}
-            >
-              Lihat Daftar Gudang Sekarang
-            </a>
+      <div className="container hero-content d-flex align-items-center justify-content-between position-relative">
+        {/* Teks kiri */}
+        <div className="hero-text">
+          <h1 className="fw-bold mb-5" style={{fontSize:'65px'}}>
+            Temukan Gudang Aman di Bandung
+          </h1>
+          <p style={{fontSize:'24px', paddingBottom:'25px'}}>
+            Cari, bandingkan, dan hubungi pemilik langsung lewat <br />WhatsApp tanpa takut penipuan.
+          </p>
+
+          <a 
+            href="#daftarGudang" 
+            className="btn btn-outline-light fw-bold mt-3 justify-content-center align-items-center d-flex" 
+            style={{ border: '3px solid white', borderRadius: '8px', fontSize:'20px', height: '56px', width: '46%', textAlign: 'center', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow:'ellipsis'}}
+          >
+            Lihat Daftar Gudang Sekarang
+          </a>
+        </div>
+
+        {/* Ilustrasi kanan */}
+        <div className="hero-image">
+          <img 
+            src={hero3d} 
+            alt="Hero ilustrasi" 
+            className="hero-img"
+          />
+        </div>
       </div>
-      <img src={hero3d} alt="Hero ilustrasi" className="hero-img"  style={{marginBottom:'50px', width:'433px', height:'415px'}}/>
     </section>
   );
 }
