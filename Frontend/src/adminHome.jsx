@@ -43,26 +43,39 @@ function AdminHome() {
   };
 
   const handleTambahIklan = async (idGudang) => {
+    const confirmAdd = window.confirm("Yakin ingin menambahkan gudang ini ke daftar iklan?");
+    if (!confirmAdd) return;
+  
     try {
       const storedUser = JSON.parse(localStorage.getItem("user"));
       await axios.post("https://tempobox-api.up.railway.app/iklan", {
         id_admin: storedUser.id,
         id_gudang: idGudang
       });
+  
+      alert("Iklan berhasil ditambahkan!");
       fetchData();
     } catch (error) {
       console.error(error);
+      alert("Gagal menambahkan iklan!");
+    }
+  };
+  
+  
+  const handleHapusIklan = async (idIklan) => {
+    const confirmDelete = window.confirm("Yakin ingin menghapus iklan ini?");
+    if (!confirmDelete) return;
+  
+    try {
+      await axios.delete(`https://tempobox-api.up.railway.app/iklan/${idIklan}`);
+      alert("Iklan berhasil dihapus!");
+      fetchData();
+    } catch (error) {
+      console.error(error);
+      alert("Gagal menghapus iklan!");
     }
   };
 
-  const handleHapusIklan = async (idIklan) => {
-    try {
-      await axios.delete(`https://tempobox-api.up.railway.app/iklan/${idIklan}`);
-      fetchData();
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const jumlahIklan = iklan.length;
   const jumlahTersedia = gudang.filter(g => g.status === "Tersedia").length;
