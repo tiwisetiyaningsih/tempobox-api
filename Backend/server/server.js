@@ -119,6 +119,11 @@ app.post('/register', async (req, res) => {
 // Endpoint Login (Dengan Logging Ekstrem)
 // -------------------------------------------------------------------
 app.post("/login", async (req, res) => {
+  console.log("=== LOGIN ATTEMPT ===");
+  console.log("DB Host:", process.env.DB_HOST);
+  console.log("DB Port:", process.env.DB_PORT);
+  console.log("DB Name:", process.env.DB_NAME);
+  console.log("Request body:", req.body);
   const { email, password } = req.body;
 
   try {
