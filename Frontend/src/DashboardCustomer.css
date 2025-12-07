@@ -1,3 +1,9 @@
 .hover-bg:hover {
   background-color: #f8f9fa;
 }
+
+.dropdown-fix {
+    left: auto !important;
+    right: 0 !important; 
+    transform: translateX(-20px); /* geser 20px ke kiri */
+}
