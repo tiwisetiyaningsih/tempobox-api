@@ -19,7 +19,7 @@ export default function KelolaGudang() {
   // =========================
   const fetchGudang = async () => {
     try {
-      const res = await fetch("http://tempobox-api.up.railway.app/gudang");
+      const res = await fetch("https://tempobox-api.up.railway.app/gudang");
       const data = await res.json();
       setWarehouses(data);
     } catch (err) {
@@ -51,7 +51,7 @@ export default function KelolaGudang() {
     const formData = new FormData(e.target);
 
     try {
-      const res = await fetch("http://tempobox-api.up.railway.app/gudang", {
+      const res = await fetch("https://tempobox-api.up.railway.app/gudang", {
         method: "POST",
         body: formData,
       });
