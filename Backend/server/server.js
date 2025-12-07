@@ -215,7 +215,7 @@ app.put('/users/:id', upload.single("photo_profil"), async (req, res) => {
 
         // Jika upload foto baru
         if (req.file) {
-            newPhotoUrl = `${req.protocol}://${req.get("host")}/uploads/${req.file.filename}`;
+            newPhotoUrl = req.file.filename;
         }
 
         // Ambil data user lama
