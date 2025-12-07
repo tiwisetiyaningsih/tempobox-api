@@ -1,61 +1,52 @@
 .hero-section {
   position: relative;
-  background: url('./assets/gudang-bg.svg') center/cover no-repeat;
-  padding: 30px 0;
+  background: url('./assets/background.png') center/cover no-repeat;
+  padding: 100px 0;
   overflow: hidden;
-}
-
-/* Overlay biru full hero */
-.hero-section .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(25, 122, 255, 0.6); /* bisa diubah opacity */
-  z-index: 0;
 }
 
 /* Konten hero: teks kiri, gambar kanan */
 .hero-content {
-  position: relative;
-  z-index: 1;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap; /* biar responsive */
-  gap: 10px;
-  padding-left: 0%;
-  margin-left: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 100%;
+  padding-left: 80px;
 }
 
 /* Hero teks kiri */
 .hero-text {
-  flex: 1 1 300px; /* tetap di kiri */
   color: #fff;
   text-align: left;
+  max-width: 700px;
 }
 
-/* Hero gambar kanan */
-.hero-image {
-  flex: 0 0 auto;
-  position: relative;
+.hero-btn {
+  border: 2px solid white;
+  border-radius: 8px;
+  height: 45px;
+  width: 300px;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.hero-img {
-  width: 433px;  /* tetap seperti sebelumnya */
-  height: 415px; /* tetap seperti sebelumnya */
-  margin-bottom: 50px;
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 /* Responsive */
 @media (max-width: 992px) {
-  .hero-section .btn {
+  .hero-btn {
     width: 70% !important;
   }
-  .hero-content {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+}
 
-  .hero-image {
-    margin-top: 20px;
+@media (max-width: 576px) {
+  .hero-text h1 {
+    font-size: 42px; /* tetap readable di HP */
   }
 }
