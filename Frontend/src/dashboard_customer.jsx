@@ -182,7 +182,7 @@ const DashboardCustomer = () => {
                                     )}
                                 </Link>
             
-                                <ul className="dropdown-menu dropdown-menu-start shadow-lg p-2 text-center">
+                                <ul className="dropdown-menu shadow-lg p-2 text-center dropdown-fix">
                                     <li>
                                         <Link className="dropdown-item py-2" to="/profile_customer">
                                             <Person size={16} className="me-2 text-secondary" /> Profile
