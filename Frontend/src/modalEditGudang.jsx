@@ -24,13 +24,13 @@ export default function ModalEditGudang({ data, onSuccess }) {
 
     setPreview({
       gambar_1: data.gambar_1
-        ? `http://localhost:3001/uploads/${data.gambar_1}`
+        ? `http://tempobox-api.up.railway.app/uploads/${data.gambar_1}`
         : "",
       gambar_2: data.gambar_2
-        ? `http://localhost:3001/uploads/${data.gambar_2}`
+        ? `http://tempobox-api.up.railway.app/uploads/${data.gambar_2}`
         : "",
       gambar_3: data.gambar_3
-        ? `http://localhost:3001/uploads/${data.gambar_3}`
+        ? `http://tempobox-api.up.railway.app/uploads/${data.gambar_3}`
         : "",
     });
   }, [data]);
