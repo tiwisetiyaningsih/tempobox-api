@@ -1,0 +1,28 @@
+.team-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.team-card:hover {
+    transform: scale(1.2); /* Membesar sedikit */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Tambah shadow */
+}
+
+.feature-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+.feature-btn:hover {
+    transform: translateY(-10px); /* Naik 5px */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Shadow lebih nyata */
+}
+
+.kontak {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.kontak:hover {
+    transform: scale(1.05); /* Membesar sedikit */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Tambah shadow */
+}
