@@ -67,7 +67,7 @@ function Register() {
 
           <div className="mb-3">
             <Link 
-              to="/beranda"
+              to="/"
               className="d-flex align-items-center gap-2 mb-3 fw-semibold text-decoration-none text-muted"
             >
               <i className="bi bi-chevron-left"></i>
