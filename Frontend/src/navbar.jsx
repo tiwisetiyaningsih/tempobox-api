@@ -7,18 +7,16 @@ function Navbar() {
   const navigate = useNavigate();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-white py-3">
+    <nav className="navbar navbar-expand-lg navbar-light bg-white py-4">
       <div className="container">
-
         {/* Logo */}
-        <a className="navbar-brand fw-bold text-primary d-flex align-items-center" href="#top">
+        <Link className="navbar-brand fw-bold text-primary" to="/">
           <img
             src={logoTempoBox}
-            className="logoTempoBox"
             alt="TempoBox logo"
-            style={{ width: "145px", height: "32px" }}
+            style={{ width: "165px", height: "52px" }}
           />
-        </a>
+        </Link>
 
         {/* Toggler */}
         <button
@@ -26,49 +24,39 @@ function Navbar() {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
         {/* Menu */}
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-
+          <ul className="navbar-nav ms-auto align-items-lg-center">
             <li className="nav-item">
-              <a className="nav-link me-2" href="#home" style={{ fontSize: "20px" }}>
-                Home
-              </a>
+              <a className="nav-link me-3" href="#home" style={{ fontSize: "25px" }}>Home</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link me-3" href="#keunggulanKami" style={{ fontSize: "25px" }}>Keunggulan Kami</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link me-3" href="#tentangKami" style={{ fontSize: "25px" }}>Tentang Kami</a>
+            </li>
+            <li className="nav-item me-lg-4">
+              <a className="nav-link" href="#footer" style={{ fontSize: "25px" }}>Kontak</a>
             </li>
 
-            <li className="nav-item">
-              <a className="nav-link me-2" href="#keunggulanKami" style={{ fontSize: "20px" }}>
-                Keunggulan Kami
-              </a>
-            </li>
-
-            <li className="nav-item">
-              <a className="nav-link me-2" href="#tentangKami" style={{ fontSize: "20px" }}>
-                Tentang Kami
-              </a>
-            </li>
-
-            <li className="nav-item me-5">
-              <a className="nav-link" href="#footer" style={{ fontSize: "20px" }}>
-                Kontak
-              </a>
+            {/* Tombol login/daftar */}
+            <li className="nav-item d-flex gap-2 mt-2 mt-lg-0">
+              <Link to="/login" className="btn btn-outline-primary px-4" style={{ fontSize: "25px" }}>
+                Masuk
+              </Link>
+              <Link to="/register" className="btn btn-primary px-4" style={{ fontSize: "25px" }}>
+                Daftar
+              </Link>
             </li>
           </ul>
-
-          {/* Tombol kanan */}
-          <div className="d-flex">
-            <Link to="/login" className="btn btn-outline-primary me-3 px-4" style={{ fontSize: "20px" }}>
-              Masuk
-            </Link>
-            <Link to="/register" className="btn btn-primary px-4" style={{ fontSize: "20px" }}>
-              Daftar
-            </Link>
-          </div>
-
         </div>
       </div>
     </nav>
