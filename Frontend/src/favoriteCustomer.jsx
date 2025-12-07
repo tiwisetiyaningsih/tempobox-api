@@ -123,7 +123,7 @@ const FavoriteCustomer = () => {
             
                     {/* Toggler */}
                     <button
-                        className="navbar-toggler me-2"
+                        className="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"
                         data-bs-target="#navbarNav"
@@ -160,23 +160,22 @@ const FavoriteCustomer = () => {
                                 </Link>
                             </li>
             
-                            <li className="nav-item">
+                            <li className="nav-item me-4">
                                 <Link className="nav-link fw-semibold text-primary" to="/favorite_customer">
                                     <HeartFill className="me-1 text-primary" size={16} /> Gudang Favorite
                                 </Link>
                             </li>
             
                             {/* DROPDOWN */}
-                            <li className="nav-item dropdown mt-2 mt-lg-0">
+                            <li className="nav-item dropdown me-2 mt-lg-0">
                                 <Link
                                     className="nav-link dropdown-toggle d-flex align-items-center justify-content-center p-0"
                                     to="#"
-                                    role="button"
                                     data-bs-toggle="dropdown"
                                 >
                                     {userData?.photo_profil ? (
                                         <img
-                                            src={userData.photo_profil}
+                                            src={`https://tempobox-api.up.railway.app/uploads/${userData.photo_profil}`}
                                             alt="User Avatar"
                                             className="rounded-circle me-2"
                                             style={{ width: '35px', height: '35px', objectFit: "cover" }}
@@ -189,7 +188,7 @@ const FavoriteCustomer = () => {
                                 <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
                                     <li>
                                         <Link className="dropdown-item py-2" to="/profile_customer">
-                                            <Person size={16} className="me-2" /> Profile
+                                            <Person size={16} className="me-2 text-secondary" /> Profile
                                         </Link>
                                     </li>
                                     <li>
