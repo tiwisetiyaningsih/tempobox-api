@@ -32,8 +32,8 @@ function AdminHome() {
   const fetchData = async () => {
     try {
       const [gudangRes, iklanRes] = await Promise.all([
-        axios.get("http://tempobox-api.up.railway.app/gudang"),
-        axios.get("http://tempobox-api.up.railway.app/iklan")
+        axios.get("https://tempobox-api.up.railway.app/gudang"),
+        axios.get("https://tempobox-api.up.railway.app/iklan")
       ]);
       setGudang(gudangRes.data);
       setIklan(iklanRes.data);
@@ -45,7 +45,7 @@ function AdminHome() {
   const handleTambahIklan = async (idGudang) => {
     try {
       const storedUser = JSON.parse(localStorage.getItem("user"));
-      await axios.post("http://tempobox-api.up.railway.app/iklan", {
+      await axios.post("https://tempobox-api.up.railway.app/iklan", {
         id_admin: storedUser.id,
         id_gudang: idGudang
       });
@@ -57,7 +57,7 @@ function AdminHome() {
 
   const handleHapusIklan = async (idIklan) => {
     try {
-      await axios.delete(`http://tempobox-api.up.railway.app/iklan/${idIklan}`);
+      await axios.delete(`https://tempobox-api.up.railway.app/iklan/${idIklan}`);
       fetchData();
     } catch (error) {
       console.error(error);
@@ -150,7 +150,7 @@ function AdminHome() {
                     <td>
                       {g.gambar_1 ? (
                         <img
-                          src={`http://tempobox-api.up.railway.app/uploads/${g.gambar_1}`}
+                          src={`https://tempobox-api.up.railway.app/uploads/${g.gambar_1}`}
                           className="foto-gudang"
                           alt="Gudang"
                         />
