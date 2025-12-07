@@ -302,7 +302,7 @@ function KelolaUsers() {
                                                 ? u.photo_profil
                                                 : `https://tempobox-api.up.railway.app/uploads/${u.photo_profil}`
                                             }
-                                        style={{ width: '100px', height: '80px'}}
+                                        style={{ width: '80px', height: '60px', borderRadius: '5px'}}
                                         alt="Profil"
                                     />
                                 </td>
