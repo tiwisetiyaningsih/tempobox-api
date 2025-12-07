@@ -32,7 +32,7 @@ const DashboardCustomer = () => {
 
     const fetchFavorite = async (id_user) => {
         try {
-            const response = await fetch(`http://tempobox-api.up.railway.app/favorite/${id_user}`);
+            const response = await fetch(`https://tempobox-api.up.railway.app/favorite/${id_user}`);
             const data = await response.json();
 
             const list = data.map(item => Number(item.id_gudang));
@@ -55,13 +55,13 @@ const DashboardCustomer = () => {
 
         try {
             if (isFav) {
-                await fetch(`http://tempobox-api.up.railway.app/favorite/${userData.id}/${id_gudang}`, {
+                await fetch(`https://tempobox-api.up.railway.app/favorite/${userData.id}/${id_gudang}`, {
                     method: "DELETE"
                 });
 
                 setFavoriteList(favoriteList.filter(id => id !== id_gudang));
             } else {
-                await fetch("http://tempobox-api.up.railway.app/favorite", {
+                await fetch("https://tempobox-api.up.railway.app/favorite", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({
@@ -81,7 +81,7 @@ const DashboardCustomer = () => {
     // FETCH GUDANG
     const fetchGudang = async () => {
         try {
-            const response = await fetch("http://tempobox-api.up.railway.app/gudang");
+            const response = await fetch("https://tempobox-api.up.railway.app/gudang");
             const data = await response.json();
             setGudangList(data);
         } catch (error) {
