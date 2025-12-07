@@ -27,7 +27,7 @@ export default function ModalDetailGudang({ show, onClose, data }) {
                 {data.gambar_1 && (
                   <div className="carousel-item active">
                     <img
-                      src={`http://tempobox-api.up.railway.app/uploads/${data.gambar_1}`}
+                      src={`https://tempobox-api.up.railway.app/uploads/${data.gambar_1}`}
                       className="d-block w-100 rounded"
                       style={{ maxHeight: "320px", objectFit: "cover" }}
                       alt="Gudang 1"
@@ -38,7 +38,7 @@ export default function ModalDetailGudang({ show, onClose, data }) {
                 {data.gambar_2 && (
                   <div className="carousel-item">
                     <img
-                      src={`http://tempobox-api.up.railway.app/uploads/${data.gambar_2}`}
+                      src={`https://tempobox-api.up.railway.app/uploads/${data.gambar_2}`}
                       className="d-block w-100 rounded"
                       style={{ maxHeight: "320px", objectFit: "cover" }}
                       alt="Gudang 2"
@@ -49,7 +49,7 @@ export default function ModalDetailGudang({ show, onClose, data }) {
                 {data.gambar_3 && (
                   <div className="carousel-item">
                     <img
-                      src={`http://tempobox-api.up.railway.app/uploads/${data.gambar_3}`}
+                      src={`https://tempobox-api.up.railway.app/uploads/${data.gambar_3}`}
                       className="d-block w-100 rounded"
                       style={{ maxHeight: "320px", objectFit: "cover" }}
                       alt="Gudang 3"
