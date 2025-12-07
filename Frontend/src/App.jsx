@@ -33,7 +33,7 @@ function App() {
         <Routes>
           {/* Halaman utama */}
           <Route
-            path="/beranda"
+            path="/"
             element={
               <div className="flex-column" style={{display: 'flex'}}>
                   <Navbar />
