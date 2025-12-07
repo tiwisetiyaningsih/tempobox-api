@@ -64,7 +64,7 @@ const DetailGudang = () => {
 
         const messageTemplate = 
             `Permisi ka\n` +
-            `Saya ${userName} mau berminat untuk pesan gudang ${gudangName} ` +
+            `Saya ${userName} berminat untuk pesan gudang ${gudangName} ` +
             `dengan ukuran ${sizeDetail} ` +
             `yang berlokasi di ${locationDetail}`;
 
