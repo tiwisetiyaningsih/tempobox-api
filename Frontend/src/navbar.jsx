@@ -35,16 +35,16 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto align-items-lg-center">
             <li className="nav-item">
-              <a className="nav-link me-3" href="#home" style={{ fontSize: "25px" }}>Home</a>
+              <a className="nav-link me-3" href="#home" style={{ fontSize: "20px" }}>Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link me-3" href="#keunggulanKami" style={{ fontSize: "25px" }}>Keunggulan Kami</a>
+              <a className="nav-link me-3" href="#keunggulanKami" style={{ fontSize: "22px" }}>Keunggulan Kami</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link me-3" href="#tentangKami" style={{ fontSize: "25px" }}>Tentang Kami</a>
+              <a className="nav-link me-3" href="#tentangKami" style={{ fontSize: "22px" }}>Tentang Kami</a>
             </li>
             <li className="nav-item me-lg-4">
-              <a className="nav-link" href="#footer" style={{ fontSize: "25px" }}>Kontak</a>
+              <a className="nav-link" href="#footer" style={{ fontSize: "22px" }}>Kontak</a>
             </li>
 
             {/* Tombol login/daftar */}
