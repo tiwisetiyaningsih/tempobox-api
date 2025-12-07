@@ -26,7 +26,7 @@ export default function Footer() {
                 <i className="bi bi-whatsapp fs-1 me-4" style={{color:'#25D366', fontSize: '48px'}}></i> 
                 <div className="text-start">
                   <p className="mb-1 fw-bold" style={{ fontSize:'18px' }}>Chat WhatsApp</p>
-                  <p className="mb-0" style={{ fontSize:'14px' }}>+6281225351055</p>
+                  <p className="mb-0" style={{ fontSize:'15px' }}>+6281225351055</p>
                 </div>
               </div>
             </a>
@@ -44,7 +44,7 @@ export default function Footer() {
                 <img src={email} alt="Email" className="me-4" style={{ width: '48px', height: '48px' }}/> 
                 <div className="text-start">
                   <p className="mb-1 fw-bold" style={{ fontSize:'18px' }}>Email Kami</p>
-                  <p className="mb-0" style={{ fontSize:'14px' }}>tempobox@gmail.com</p>
+                  <p className="mb-0" style={{ fontSize:'15px' }}>tempobox@gmail.com</p>
                 </div>
               </div>
             </a>
