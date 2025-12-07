@@ -17,13 +17,13 @@ const DetailGudang = () => {
         // Fetch data gudang dari server
         const fetchGudang = async () => {
             try {
-                const res = await fetch(`http://localhost:3001/gudang/${id}`);
+                const res = await fetch(`http://tempobox-api.up.railway.app/gudang/${id}`);
                 const data = await res.json();
 
                 const images = [];
-                if (data.gambar_1) images.push(`http://localhost:3001/uploads/${data.gambar_1}`);
-                if (data.gambar_2) images.push(`http://localhost:3001/uploads/${data.gambar_2}`);
-                if (data.gambar_3) images.push(`http://localhost:3001/uploads/${data.gambar_3}`);
+                if (data.gambar_1) images.push(`http://tempobox-api.up.railway.app/uploads/${data.gambar_1}`);
+                if (data.gambar_2) images.push(`http://tempobox-api.up.railway.app/uploads/${data.gambar_2}`);
+                if (data.gambar_3) images.push(`http://tempobox-api.up.railway.app/uploads/${data.gambar_3}`);
 
                 const details = [
                     { keterangan: "Lokasi", detail: data.lokasi },
