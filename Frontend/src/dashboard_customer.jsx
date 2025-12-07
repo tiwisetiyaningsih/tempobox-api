@@ -144,11 +144,11 @@ const DashboardCustomer = () => {
                     </button>
             
                     {/* MENU */}
-                    <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul className="navbar-nav align-items-center">
+                    <div className="collapse navbar-collapse justify-content-end justify-content-center text-center" id="navbarNav">
+                        <ul className="navbar-nav align-items-center align-items-lg-center gap-lg-3 gap-2">
             
                             {/* Menu Beranda */}
-                            <li className="nav-item me-4">
+                            <li className="nav-item">
                                 <Link className="nav-link text-primary fw-semibold" to="/dashboard_customer">
                                     Beranda
                                 </Link>
@@ -157,15 +157,15 @@ const DashboardCustomer = () => {
                             {/* Menu Favorite */}
                             <li className="nav-item me-4">
                                 <Link className="nav-link text-muted" to="/favorite_customer">
-                                    <HeartFill size={16} className="me-1 text-muted" />
+                                    <HeartFill size={16} className="me-1 text-muted" size={16} />
                                     Gudang Favorite
                                 </Link>
                             </li>
             
                             {/* Profile Dropdown */}
-                            <li className="nav-item dropdown me-2">
+                            <li className="nav-item dropdown me-2 mt-lg-0">
                                 <Link
-                                    className="nav-link dropdown-toggle d-flex align-items-center p-0"
+                                    className="nav-link dropdown-toggle d-flex align-items-center justify-content-center p-0"
                                     to="#"
                                     data-bs-toggle="dropdown"
                                 >
@@ -181,15 +181,15 @@ const DashboardCustomer = () => {
                                     )}
                                 </Link>
             
-                                <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
+                                <ul className="dropdown-menu shadow-lg p-2 text-center">
                                     <li>
-                                        <Link className="dropdown-item py-2 rounded" to="/profile_customer">
+                                        <Link className="dropdown-item py-2" to="/profile_customer">
                                             <Person size={16} className="me-2 text-secondary" /> Profile
                                         </Link>
                                     </li>
                                     <li>
                                         <button
-                                            className="dropdown-item py-2 rounded text-white bg-danger mt-1 fw-medium"
+                                            className="dropdown-item py-2 text-white bg-danger fw-medium rounded mt-1"
                                             onClick={handleLogout}
                                         >
                                             <BoxArrowRight size={16} className="me-2" /> Keluar
@@ -232,7 +232,7 @@ const DashboardCustomer = () => {
                     {loading ? (
                         <p className="text-center">Memuat data gudang...</p>
                     ) : (
-                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5">
+                        <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5 justify-content-center">
                             {filteredGudang.map((gudang) => (
                                 <div className="col" key={gudang.id}>
                                     <div className="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
