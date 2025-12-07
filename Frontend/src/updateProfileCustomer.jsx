@@ -103,7 +103,7 @@ const UpdateProfileCustomer = () => {
 
   // FETCH USER BARU SETELAH UPDATE
   const fetchUpdatedUser = async (id) => {
-    const res = await fetch(`http://tempobox-api.up.railway.app/users/${id}`);
+    const res = await fetch(`https://tempobox-api.up.railway.app/users/${id}`);
     return await res.json();
   };
 
@@ -135,7 +135,7 @@ const handleSaveData = async (e) => {
   }
 
   try {
-    const response = await fetch(`http://tempobox-api.up.railway.app/users/${user.id || user._id}`, {
+    const response = await fetch(`https://tempobox-api.up.railway.app/users/${user.id || user._id}`, {
       method: "PUT",
       body: form,
     });
