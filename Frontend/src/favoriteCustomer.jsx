@@ -5,7 +5,6 @@ import logoTempoBox from './assets/Logo.svg';
 import gudang1 from './assets/gudang.svg'; 
 import profil_user from './assets/profil_user.svg';
 import { Link, useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
 
 const FavoriteCustomer = () => {
 
@@ -64,41 +63,37 @@ const FavoriteCustomer = () => {
     // =======================================
     // HAPUS FAVORITE (DELETE)
     // =======================================
-    const handleRemoveFavorite = async (gudangId) => {
+    const handleRemoveFavorite = (gudangId) => {
         if (!userData) return;
     
-        const result = await Swal.fire({
-            title: "Hapus Gudang dari Favorit?",
-            text: "Apakah kamu yakin ingin menghapus gudang ini dari daftar favorit?",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Ya, Hapus",
-            cancelButtonText: "Batal",
-        });
+        const modal = document.getElementById("confirmModal");
+        const btnOk = document.getElementById("btnOk");
+        const btnCancel = document.getElementById("btnCancel");
     
-        if (!result.isConfirmed) return;
+        modal.style.display = "flex";
     
-        try {
-            await fetch(`https://tempobox-api.up.railway.app/favorite/${userData.id}/${gudangId}`, {
-                method: "DELETE",
-            });
+        // Jika user klik batal
+        btnCancel.onclick = () => {
+            modal.style.display = "none";
+        };
     
-            // Update UI
-            setFavoriteGudang(favoriteGudang.filter(g => g.id !== gudangId));
+        // Jika user klik Hapus
+        btnOk.onclick = async () => {
+            modal.style.display = "none";
     
-            Swal.fire({
-                title: "Berhasil!",
-                text: "Gudang telah dihapus dari favorit.",
-                icon: "success",
-                timer: 1500,
-                showConfirmButton: false,
-            });
+            try {
+                await fetch(`https://tempobox-api.up.railway.app/favorite/${userData.id}/${gudangId}`, {
+                    method: "DELETE",
+                });
     
-        } catch (error) {
-            console.error("ERROR REMOVE FAVORITE:", error);
-        }
+                setFavoriteGudang(favoriteGudang.filter(g => g.id !== gudangId));
+    
+                alert("Gudang berhasil dihapus dari favorit!");
+            } catch (error) {
+                console.error("ERROR REMOVE FAVORITE:", error);
+            }
+        };
     };
-
 
     // =======================================
     // LOGOUT
@@ -276,6 +271,41 @@ const FavoriteCustomer = () => {
                     )}
                 </div>
             </main>
+            {/* Modal Konfirmasi */}
+            <div 
+              id="confirmModal"
+              style={{
+                position: "fixed",
+                top: 0, left: 0,
+                width: "100%", height: "100%",
+                background: "rgba(0,0,0,0.5)",
+                display: "none",
+                justifyContent: "center",
+                alignItems: "center",
+                zIndex: 9999
+              }}
+            >
+              <div style={{
+                background: "white",
+                padding: "20px",
+                borderRadius: "10px",
+                textAlign: "center",
+                width: "300px"
+              }}>
+                <h4 style={{marginBottom: "10px"}}>Hapus dari Favorit?</h4>
+                <p style={{fontSize: "14px"}}>Apakah kamu yakin ingin menghapus gudang ini?</p>
+            
+                <div style={{display: "flex", justifyContent: "space-between", marginTop: "20px"}}>
+                  <button id="btnCancel" style={{padding: "6px 12px", background: "#aaa", border: "none", borderRadius: "5px", color: "white"}}>
+                    Batal
+                  </button>
+            
+                  <button id="btnOk" style={{padding: "6px 12px", background: "#d9534f", border: "none", borderRadius: "5px", color: "white"}}>
+                    Hapus
+                  </button>
+                </div>
+              </div>
+            </div>
 
         </div>
     );
