@@ -32,44 +32,40 @@ function App() {
       <Router>
         <Routes>
           {/* Halaman utama */}
-          <Route path="/" element={<Navigate to="/beranda" />} />
           <Route
             path="/beranda"
             element={
               <div className="flex-column" style={{display: 'flex'}}>
-                <div className="flex-column" style={{background:"#ffffff", display: 'flex', paddingLeft: '100px', paddingRight: '100px', paddingTop: '10px'}}>
-                  <Navbar></Navbar>
-                 
-                </div>
+                  <Navbar />
                  {/* Section Header */}
                   <section id="header">
-                      <Header></Header>
+                      <Header />
                   </section>
-                  {/* Section Layanan */}
+
+                  {/* Section Keunggulan kami */}
                   <section id="keunggulanKami">
-                    <Keunggulan></Keunggulan>
+                    <Keunggulan />
                   </section>
 
-                  {/* Section Layanan */}
-                  <section id="daftarGudang" style={{paddingTop: '20px'}}>
-                    <DaftarGudang></DaftarGudang>
+                  {/* Section Daftar Gudang */}
+                  <section id="daftarGudang" className="pt-4">
+                    <DaftarGudang />
                   </section>
 
-                  {/* Section About */}
-                  <section id="caraKerja" style={{marginBottom: '50px'}}>
-                    <CaraKerja></CaraKerja>
+                  {/* Section Cara Kerja */}
+                  <section id="caraKerja" className="mb-5">
+                    <CaraKerja />
                   </section>
 
-                  {/* Section Kontak */}
+                  {/* Section Tentang Kami */}
                   <section id="tentangKami">
-                      <TentangKami></TentangKami>
+                      <TentangKami />
                   </section>
 
                   {/* Section Kontak */}
                   <section id="footer">
-                      <Footer></Footer>
+                      <Footer />
                   </section>
-                
               </div>
             }
           />
