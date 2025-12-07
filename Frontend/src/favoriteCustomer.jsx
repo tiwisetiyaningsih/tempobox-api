@@ -6,6 +6,7 @@ import gudang1 from './assets/gudang.svg';
 import profil_user from './assets/profil_user.svg';
 import { Link, useNavigate } from "react-router-dom";
 
+
 const FavoriteCustomer = () => {
 
     const [favoriteGudang, setFavoriteGudang] = useState([]);
@@ -33,7 +34,7 @@ const FavoriteCustomer = () => {
     const loadFavoriteGudang = async (id_user) => {
         try {
             // Ambil daftar favorite user → hanya ID gudang
-            const favRes = await fetch(`https://tempobox-api.up.railway.app/favorite/${id_user}`);
+            const favRes = await fetch(`http://localhost:3001/favorite/${id_user}`);
             const favData = await favRes.json();  
             // hasil: [ { id_gudang }, { id_gudang } ]
 
@@ -45,7 +46,7 @@ const FavoriteCustomer = () => {
             }
 
             // Ambil semua gudang
-            const gudangRes = await fetch(`https://tempobox-api.up.railway.app/gudang`);
+            const gudangRes = await fetch(`http://localhost:3001/gudang`);
             const allGudang = await gudangRes.json();
 
             // Filter gudang yang ada di favorite
@@ -63,36 +64,23 @@ const FavoriteCustomer = () => {
     // =======================================
     // HAPUS FAVORITE (DELETE)
     // =======================================
-    const handleRemoveFavorite = (gudangId) => {
+    const handleRemoveFavorite = async (gudangId) => {
         if (!userData) return;
-    
-        const modal = document.getElementById("confirmModal");
-        const btnOk = document.getElementById("btnOk");
-        const btnCancel = document.getElementById("btnCancel");
-    
-        modal.style.display = "flex";
-    
-        // Jika user klik batal
-        btnCancel.onclick = () => {
-            modal.style.display = "none";
-        };
-    
-        // Jika user klik Hapus
-        btnOk.onclick = async () => {
-            modal.style.display = "none";
-    
-            try {
-                await fetch(`https://tempobox-api.up.railway.app/favorite/${userData.id}/${gudangId}`, {
-                    method: "DELETE",
-                });
-    
-                setFavoriteGudang(favoriteGudang.filter(g => g.id !== gudangId));
-    
-                alert("Gudang berhasil dihapus dari favorit!");
-            } catch (error) {
-                console.error("ERROR REMOVE FAVORITE:", error);
-            }
-        };
+
+        const confirmDelete = window.confirm("Hapus dari gudang favorite?");
+        if (!confirmDelete) return;
+
+        try {
+            await fetch(`http://localhost:3001/favorite/${userData.id}/${gudangId}`, {
+                method: "DELETE",
+            });
+
+            // Update UI
+            setFavoriteGudang(favoriteGudang.filter(g => g.id !== gudangId));
+
+        } catch (error) {
+            console.error("ERROR REMOVE FAVORITE:", error);
+        }
     };
 
     // =======================================
@@ -127,84 +115,53 @@ const FavoriteCustomer = () => {
             {/* NAVBAR / HEADER */}
             <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom py-2">
                 <div className="container-fluid">
-            
-                    {/* LOGO */}
-                    <Link className="navbar-brand fw-bold text-primary ms-2" to="/dashboard_customer">
-                        <img src={logoTempoBox} alt="TempoBox logo" style={{ height: "32px" }} />
+                    <Link  className="navbar-brand fw-bold text-primary ms-4" to="/dashboard_customer">
+                        <img src={logoTempoBox} className="logoTempoBox" alt="TempoBox logo" style={{ height: '32px' }} />
                     </Link>
-            
-                    {/* TOGGLER (HAMBURGER MENU) */}
-                    <button
-                        className="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-            
-                    {/* MENU */}
+
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav align-items-center">
-            
-                            {/* Menu Beranda */}
                             <li className="nav-item me-4">
-                                <Link className="nav-link text-primary fw-semibold" to="/dashboard_customer">
-                                    Beranda
+                                <Link  className="nav-link text-decoration-none text-muted" to="/dashboard_customer">Beranda</Link>
+                            </li>
+                            <li className="nav-item me-4">
+                                <Link  className="nav-link text-decoration-none text-primary fw-semibold" to="/favorite_customer">
+                                    <HeartFill className="me-1 text-primary" size={16} /> Gudang Favorite
                                 </Link>
                             </li>
-            
-                            {/* Menu Favorite */}
-                            <li className="nav-item me-4">
-                                <Link className="nav-link text-muted" to="/favorite_customer">
-                                    <HeartFill size={16} className="me-1 text-muted" />
-                                    Gudang Favorite
-                                </Link>
-                            </li>
-            
-                            {/* Profile Dropdown */}
-                            <li className="nav-item dropdown me-2">
-                                <Link
-                                    className="nav-link dropdown-toggle d-flex align-items-center p-0"
-                                    to="#"
-                                    data-bs-toggle="dropdown"
-                                >
-                                    {getPhotoUrl() ? (
-                                        <img
-                                            src={getPhotoUrl()}
-                                            alt="User Avatar"
-                                            className="rounded-circle me-2"
-                                            style={{ width: "35px", height: "35px", objectFit: "cover" }}
-                                        />
+
+                            <li className="nav-item dropdown me-4">
+                                <Link  className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
+                                    {userData?.photo_profil ? (
+                                        <img src={userData.photo_profil}
+                                             alt="User Avatar"
+                                             className="rounded-circle me-2"
+                                             style={{ width: '35px', height: '35px', objectFit: "cover" }} />
                                     ) : (
                                         <i className="bi bi-person-circle fs-2 me-2 text-secondary"></i>
                                     )}
                                 </Link>
-            
-                                <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
+
+                                <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg" aria-labelledby="navbarDropdown" style={{ border: 'none' }}>
                                     <li>
-                                        <Link className="dropdown-item py-2 rounded" to="/profile_customer">
+                                        <Link  className="dropdown-item py-2 rounded" to="/profile_customer">
                                             <Person size={16} className="me-2 text-secondary" /> Profile
                                         </Link>
                                     </li>
                                     <li>
-                                        <button
-                                            className="dropdown-item py-2 rounded text-white bg-danger mt-1 fw-medium"
-                                            onClick={handleLogout}
-                                        >
+                                        <button className="dropdown-item py-2 rounded text-white bg-danger mt-1 fw-medium"
+                                            onClick={handleLogout}>
                                             <BoxArrowRight size={16} className="me-2" /> Keluar
                                         </button>
                                     </li>
                                 </ul>
                             </li>
-            
+
                         </ul>
                     </div>
                 </div>
             </nav>
+
             {/* MAIN */}
             <main className="flex-grow-1 p-4 d-flex flex-column align-items-center justify-content-start">
 
@@ -243,7 +200,7 @@ const FavoriteCustomer = () => {
                                            <img
                                                 src={
                                                     gudang.gambar_1
-                                                    ? `https://tempobox-api.up.railway.app/uploads/${gudang.gambar_1.replace("uploads/", "")}`
+                                                    ? `http://localhost:3001/uploads/${gudang.gambar_1.replace("uploads/", "")}`
                                                     : "No Image"
                                                 }
                                                 className="card-img-top"
@@ -302,41 +259,6 @@ const FavoriteCustomer = () => {
                     )}
                 </div>
             </main>
-            {/* Modal Konfirmasi */}
-            <div 
-              id="confirmModal"
-              style={{
-                position: "fixed",
-                top: 0, left: 0,
-                width: "100%", height: "100%",
-                background: "rgba(0,0,0,0.5)",
-                display: "none",
-                justifyContent: "center",
-                alignItems: "center",
-                zIndex: 9999
-              }}
-            >
-              <div style={{
-                background: "white",
-                padding: "20px",
-                borderRadius: "10px",
-                textAlign: "center",
-                width: "300px"
-              }}>
-                <h4 style={{marginBottom: "10px"}}>Hapus dari Favorit?</h4>
-                <p style={{fontSize: "14px"}}>Apakah kamu yakin ingin menghapus gudang ini?</p>
-            
-                <div style={{display: "flex", justifyContent: "space-between", marginTop: "20px"}}>
-                  <button id="btnCancel" style={{padding: "6px 12px", background: "#aaa", border: "none", borderRadius: "5px", color: "white"}}>
-                    Batal
-                  </button>
-            
-                  <button id="btnOk" style={{padding: "6px 12px", background: "#d9534f", border: "none", borderRadius: "5px", color: "white"}}>
-                    Hapus
-                  </button>
-                </div>
-              </div>
-            </div>
 
         </div>
     );
