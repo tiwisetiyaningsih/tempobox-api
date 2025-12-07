@@ -5,7 +5,7 @@ export default function ModalDeleteGudang({ show, onClose, data, onSuccess }) {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://tempobox-api.up.railway.app/gudang/${data.id}`);
+      await axios.delete(`https://tempobox-api.up.railway.app/gudang/${data.id}`);
       alert("Gudang berhasil dihapus");
       onSuccess();
       onClose();
