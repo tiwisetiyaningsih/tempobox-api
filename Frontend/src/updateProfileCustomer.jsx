@@ -43,7 +43,7 @@ const UpdateProfileCustomer = () => {
     if (!user?.photo_profil) return null;
     return user.photo_profil.startsWith("http")
       ? user.photo_profil
-      : `http://localhost:3001/uploads/${user.photo_profil}`;
+      : `http://tempobox-api.up.railway.app/uploads/${user.photo_profil}`;
   };
 
   // FOTO PREVIEW FORM
@@ -53,7 +53,7 @@ const UpdateProfileCustomer = () => {
     if (user?.photo_profil && !removePhoto) {
       return user.photo_profil.startsWith("http")
         ? user.photo_profil
-        : `http://localhost:3001/uploads/${user.photo_profil}`;
+        : `http://tempobox-api.up.railway.app/uploads/${user.photo_profil}`;
     }
 
     return null;
@@ -103,7 +103,7 @@ const UpdateProfileCustomer = () => {
 
   // FETCH USER BARU SETELAH UPDATE
   const fetchUpdatedUser = async (id) => {
-    const res = await fetch(`http://localhost:3001/users/${id}`);
+    const res = await fetch(`http://tempobox-api.up.railway.app/users/${id}`);
     return await res.json();
   };
 
@@ -135,7 +135,7 @@ const handleSaveData = async (e) => {
   }
 
   try {
-    const response = await fetch(`http://localhost:3001/users/${user.id || user._id}`, {
+    const response = await fetch(`http://tempobox-api.up.railway.app/users/${user.id || user._id}`, {
       method: "PUT",
       body: form,
     });
