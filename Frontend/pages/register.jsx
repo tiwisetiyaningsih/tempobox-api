@@ -30,7 +30,7 @@ function Register() {
 
     try {
       // 🔥 BAGIAN FETCH SUDAH DIBENERIN
-      const res = await fetch("https://tempobox-api-production-cdd2.up.railway.app/register", {
+      const res = await fetch("https://tempobox-api.up.railway.app/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
