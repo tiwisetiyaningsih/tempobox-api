@@ -43,7 +43,7 @@ export default function DaftarGudang() {
                   >
                     <img
                       src={
-                       item.gambar_1 ? `https://YOUR_RAILWAY_APP_URL/uploads/${item.gambar_1.replace("uploads/", "")}`
+                       item.gambar_1 ? `https://tempobox-api.up.railway.app/uploads/${item.gambar_1.replace("uploads/", "")}`
                         : "No Image"
                         }
                         className="card-img-top"
