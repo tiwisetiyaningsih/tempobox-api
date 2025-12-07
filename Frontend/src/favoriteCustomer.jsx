@@ -34,7 +34,7 @@ const FavoriteCustomer = () => {
     const loadFavoriteGudang = async (id_user) => {
         try {
             // Ambil daftar favorite user → hanya ID gudang
-            const favRes = await fetch(`http://localhost:3001/favorite/${id_user}`);
+            const favRes = await fetch(`https://tempobox-api.up.railway.app/favorite/${id_user}`);
             const favData = await favRes.json();  
             // hasil: [ { id_gudang }, { id_gudang } ]
 
@@ -46,7 +46,7 @@ const FavoriteCustomer = () => {
             }
 
             // Ambil semua gudang
-            const gudangRes = await fetch(`http://localhost:3001/gudang`);
+            const gudangRes = await fetch(`https://tempobox-api.up.railway.app/gudang`);
             const allGudang = await gudangRes.json();
 
             // Filter gudang yang ada di favorite
@@ -71,7 +71,7 @@ const FavoriteCustomer = () => {
         if (!confirmDelete) return;
 
         try {
-            await fetch(`http://localhost:3001/favorite/${userData.id}/${gudangId}`, {
+            await fetch(`https://tempobox-api.up.railway.app/favorite/${userData.id}/${gudangId}`, {
                 method: "DELETE",
             });
 
@@ -115,52 +115,84 @@ const FavoriteCustomer = () => {
             {/* NAVBAR / HEADER */}
             <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom py-2">
                 <div className="container-fluid">
-                    <Link  className="navbar-brand fw-bold text-primary ms-4" to="/dashboard_customer">
+            
+                    {/* Logo */}
+                    <Link className="navbar-brand fw-bold text-primary ms-2" to="/dashboard_customer">
                         <img src={logoTempoBox} className="logoTempoBox" alt="TempoBox logo" style={{ height: '32px' }} />
                     </Link>
-
+            
+                    {/* Toggler (MOBILE MENU BUTTON) */}
+                    <button
+                        className="navbar-toggler me-2"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+            
+                    {/* COLLAPSIBLE MENU */}
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul className="navbar-nav align-items-center">
-                            <li className="nav-item me-4">
-                                <Link  className="nav-link text-decoration-none text-muted" to="/dashboard_customer">Beranda</Link>
+                        <ul className="navbar-nav align-items-lg-center align-items-start text-start">
+            
+                            <li className="nav-item me-lg-4">
+                                <Link className="nav-link text-muted" to="/dashboard_customer">
+                                    Beranda
+                                </Link>
                             </li>
-                            <li className="nav-item me-4">
-                                <Link  className="nav-link text-decoration-none text-primary fw-semibold" to="/favorite_customer">
+            
+                            <li className="nav-item me-lg-4">
+                                <Link className="nav-link fw-semibold text-primary" to="/favorite_customer">
                                     <HeartFill className="me-1 text-primary" size={16} /> Gudang Favorite
                                 </Link>
                             </li>
-
-                            <li className="nav-item dropdown me-4">
-                                <Link  className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
+            
+                            {/* DROPDOWN PROFILE */}
+                            <li className="nav-item dropdown me-lg-4 mt-2 mt-lg-0">
+            
+                                <Link
+                                    className="nav-link dropdown-toggle d-flex align-items-center p-0"
+                                    to="#"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                >
                                     {userData?.photo_profil ? (
-                                        <img src={userData.photo_profil}
-                                             alt="User Avatar"
-                                             className="rounded-circle me-2"
-                                             style={{ width: '35px', height: '35px', objectFit: "cover" }} />
+                                        <img
+                                            src={userData.photo_profil}
+                                            alt="User Avatar"
+                                            className="rounded-circle me-2"
+                                            style={{ width: '35px', height: '35px', objectFit: "cover" }}
+                                        />
                                     ) : (
                                         <i className="bi bi-person-circle fs-2 me-2 text-secondary"></i>
                                     )}
                                 </Link>
-
-                                <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg" aria-labelledby="navbarDropdown" style={{ border: 'none' }}>
+            
+                                <ul className="dropdown-menu dropdown-menu-end shadow-lg p-2">
                                     <li>
-                                        <Link  className="dropdown-item py-2 rounded" to="/profile_customer">
-                                            <Person size={16} className="me-2 text-secondary" /> Profile
+                                        <Link className="dropdown-item py-2" to="/profile_customer">
+                                            <Person size={16} className="me-2" /> Profile
                                         </Link>
                                     </li>
                                     <li>
-                                        <button className="dropdown-item py-2 rounded text-white bg-danger mt-1 fw-medium"
-                                            onClick={handleLogout}>
+                                        <button
+                                            className="dropdown-item py-2 text-white bg-danger fw-medium rounded mt-1"
+                                            onClick={handleLogout}
+                                        >
                                             <BoxArrowRight size={16} className="me-2" /> Keluar
                                         </button>
                                     </li>
                                 </ul>
+            
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </nav>
+            
 
             {/* MAIN */}
             <main className="flex-grow-1 p-4 d-flex flex-column align-items-center justify-content-start">
