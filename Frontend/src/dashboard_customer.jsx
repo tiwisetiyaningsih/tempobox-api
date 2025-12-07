@@ -92,13 +92,14 @@ const DashboardCustomer = () => {
     };
 
     // Fungsi untuk memastikan path gambar benar
-    const getImageUrl = (filename) => {
-        if (!filename) return null;
-    
-        // hapus "uploads/" jika masih ada
-        const clean = filename.replace("uploads/", "");
-    
-        return `https://tempobox-api.up.railway.app/uploads/${clean}`;
+    const getPhotoUrl = () => {
+        if (!userData?.photo_profil) return null;
+
+        // Jika sudah berbentuk URL penuh
+        if (userData.photo_profil.startsWith("http")) return userData.photo_profil;
+
+        // Jika hanya nama file → generate URL
+        return `https://tempobox-api.up.railway.app/uploads/${userData.photo_profil}`;
     };
 
     const handleLogout = () => {
@@ -142,11 +143,13 @@ const DashboardCustomer = () => {
 
                             <li className="nav-item dropdown me-4">
                                 <Link className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
-                                    {userData?.photo_profil ? (
-                                        <img src={getImageUrl(userData.photo_profil)}
+                                    {getPhotoUrl() ? (
+                                        <img
+                                            src={getPhotoUrl()}
                                             alt="User Avatar"
-                                             className="rounded-circle me-2"
-                                             style={{ width: '35px', height: '35px', objectFit: "cover" }} />
+                                            className="rounded-circle me-2"
+                                            style={{ width: '35px', height: '35px', objectFit: "cover" }}
+                                        />
                                     ) : (
                                         <i className="bi bi-person-circle fs-2 me-2 text-secondary"></i>
                                     )}
