@@ -38,7 +38,7 @@ const ProfileCustomer = () => {
         if (!userData?.photo_profil) return null;
 
         // Jika sudah berbentuk URL penuh
-        if (userData.photo_profil.startsWith("https")) return userData.photo_profil;
+        if (userData.photo_profil.startsWith("http")) return userData.photo_profil;
 
         // Jika hanya nama file → generate URL
         return `https://tempobox-api.up.railway.app/uploads/${userData.photo_profil}`;
