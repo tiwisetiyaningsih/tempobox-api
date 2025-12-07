@@ -95,14 +95,9 @@ const DashboardCustomer = () => {
     const getPhotoUrl = () => {
         if (!userData?.photo_profil) return null;
     
-        // Jika sudah mengandung "uploads"
-        if (userData.photo_profil.includes("uploads/")) {
-            return `https://tempobox-api.up.railway.app/${userData.photo_profil}`;
-        }
-    
-        // Jika backend hanya mengirim nama file (fallback)
         return `https://tempobox-api.up.railway.app/uploads/${userData.photo_profil}`;
     };
+
 
 
 
