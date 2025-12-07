@@ -186,7 +186,7 @@ const FavoriteCustomer = () => {
                                     )}
                                 </Link>
             
-                                <ul className="dropdown-menu shadow-lg p-2 text-center">
+                                <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
                                     <li>
                                         <Link className="dropdown-item py-2" to="/profile_customer">
                                             <Person size={16} className="me-2" /> Profile
