@@ -200,7 +200,7 @@ const FavoriteCustomer = () => {
                                            <img
                                                 src={
                                                     gudang.gambar_1
-                                                    ? `https://localhost:3001/uploads/${gudang.gambar_1.replace("uploads/", "")}`
+                                                    ? `https://tempobox-api.up.railway.app/uploads/${gudang.gambar_1.replace("uploads/", "")}`
                                                     : "No Image"
                                                 }
                                                 className="card-img-top"
