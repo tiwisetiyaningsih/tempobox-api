@@ -129,7 +129,7 @@ function KelolaUsers() {
         });
 
         // Refresh data user
-        const updated = await fetch("http://localhost:3001/users").then(r => r.json());
+        const updated = await fetch("https://tempobox-api.up.railway.app/users").then(r => r.json());
         setUsers(updated);
 
     } catch (err) {
@@ -156,7 +156,7 @@ function KelolaUsers() {
         }
 
         try {
-            const res = await fetch(`http://localhost:3001/users/${selectedUser.id}`, {
+            const res = await fetch(`https://tempobox-api.up.railway.app/users/${selectedUser.id}`, {
                 method: "PUT",
                 body: form
             });
@@ -165,7 +165,7 @@ function KelolaUsers() {
             alert(data.message);
 
             // refresh user list
-            const list = await fetch("http://localhost:3001/users").then(r => r.json());
+            const list = await fetch("https://tempobox-api.up.railway.app/users").then(r => r.json());
             setUsers(list);
 
         } catch (error) {
@@ -177,7 +177,7 @@ function KelolaUsers() {
   // HANDLE HAPUS USER
   const handleDeleteUser = async () => {
     try {
-        const res = await fetch(`http://localhost:3001/users/${selectedUser.id}`, {
+        const res = await fetch(`https://tempobox-api.up.railway.app/users/${selectedUser.id}`, {
         method: "DELETE"
         });
 
@@ -185,7 +185,7 @@ function KelolaUsers() {
         alert(data.message);
 
         // Refresh data
-        const list = await fetch("http://localhost:3001/users").then(r => r.json());
+        const list = await fetch("https://tempobox-api.up.railway.app/users").then(r => r.json());
         setUsers(list);
 
     } catch (error) {
@@ -298,11 +298,11 @@ function KelolaUsers() {
                                 <td>
                                     <img 
                                         src={
-                                            u.photo_profil?.startsWith("http")
+                                            u.photo_profil?.startsWith("https")
                                                 ? u.photo_profil
                                                 : `https://tempobox-api.up.railway.app/uploads/${u.photo_profil}`
                                             }
-                                        style={{ width: '100px', height: '100px'}}
+                                        style={{ width: '100px', height: '80px'}}
                                         alt="Profil"
                                     />
                                 </td>
@@ -321,9 +321,9 @@ function KelolaUsers() {
                                         setSelectedUser({ ...u });
                                         setEditPhoto(null);
                                         setEditPhotoPreview(
-                                            u.photo_profil?.startsWith("http")
+                                            u.photo_profil?.startsWith("https")
                                                 ? u.photo_profil
-                                                : `http://localhost:3001/uploads/${u.photo_profil}`
+                                                : `https://tempobox-api.up.railway.app/uploads/${u.photo_profil}`
                                         );
                                     }}
 
@@ -495,7 +495,7 @@ function KelolaUsers() {
                                         <img
                                             src={
                                                 editPhotoPreview ||
-                                                `http://localhost:3001/uploads/${selectedUser.photo_profil}`
+                                                `https://tempobox-api.up.railway.app/uploads/${selectedUser.photo_profil}`
                                             }
                                             alt="Foto Profil"
                                             style={{
