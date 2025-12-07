@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap-icons/font/bootstrap-icons.css"; 
+import "./hover.css";
 
 export default function Keunggulan() {
   const features = [
@@ -41,7 +42,7 @@ export default function Keunggulan() {
             <div key={index} className="col-12 col-md-4 col-lg-3">
               <a
                 href="#"
-                className="btn btn-primary d-flex align-items-center justify-content-center text-center py-3 px-2 w-100"
+                className="btn btn-primary feature-btn d-flex align-items-center justify-content-center text-center py-3 px-2 w-100"
                 style={{ fontSize: '18px', minHeight: '60px' }}
               >
                 <i className={`${item.icon} fs-5 me-3`}></i> 
@@ -50,6 +51,7 @@ export default function Keunggulan() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
