@@ -296,14 +296,14 @@ function KelolaUsers() {
                             <tr key={u.id} className='text-center'>
                                 <td>{index + 1}</td>
                                 <td>
-                                    <img 
-                                        src={
-                                            u.photo_profil?.startsWith("https")
-                                                ? u.photo_profil
-                                                : `https://tempobox-api.up.railway.app/uploads/${u.photo_profil}`
-                                            }
-                                        style={{ width: '80px', height: '60px', borderRadius: '5px'}}
-                                        alt="Profil"
+                                    <img
+                                      src={
+                                        u.photo_profil?.includes("http")
+                                          ? u.photo_profil.replace("http://localhost:3001", "https://tempobox-api.up.railway.app")
+                                          : `https://tempobox-api.up.railway.app/uploads/${u.photo_profil}`
+                                      }
+                                      style={{ width: "80px", height: "60px", borderRadius: "5px" }}
+                                      alt="Profil"
                                     />
                                 </td>
                                 <td>{u.name}</td>
