@@ -133,7 +133,7 @@ const FavoriteCustomer = () => {
                             <li className="nav-item dropdown me-4">
                                 <Link  className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
                                     {userData?.photo_profil ? (
-                                        <img src={userData.photo_profil}
+                                        <img src={`https://tempobox-api.up.railway.app/uploads/${userData.photo_profil.replace("uploads/", "")}`}
                                              alt="User Avatar"
                                              className="rounded-circle me-2"
                                              style={{ width: '35px', height: '35px', objectFit: "cover" }} />
