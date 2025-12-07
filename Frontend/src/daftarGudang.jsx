@@ -11,6 +11,7 @@ export default function DaftarGudang() {
         const response = await axios.get(
           "https://tempobox-api.up.railway.app/iklan"
         );
+        console.log("HASIL API:", response.data);
         setIklan(response.data);
       } catch (error) {
         console.error("Gagal mengambil data iklan:", error);
