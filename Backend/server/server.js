@@ -112,18 +112,32 @@ app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const [rows] = await db.query(
-      "SELECT * FROM users WHERE email = ? AND password = ?",
-      [email, password]
+    const [rows] = await db.execute(
+      "SELECT * FROM users WHERE email = ?",
+      [email]
     );
 
     if (rows.length === 0) {
-      return res.status(401).json({ message: "Email atau password salah" });
+      return res.status(401).json({ message: "Email tidak terdaftar" });
+    }
+
+    const user = rows[0];
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: "Password salah" });
     }
 
     res.json({
       message: "Login berhasil",
-      user: rows[0]
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        role: user.role,
+        photo_profil: user.photo_profil
+      }
     });
 
   } catch (err) {
@@ -131,6 +145,7 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
 // ===========================
 // GET USER BY ID
 // ===========================
