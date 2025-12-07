@@ -94,13 +94,12 @@ const DashboardCustomer = () => {
     // Fungsi untuk memastikan path gambar benar
     const getPhotoUrl = () => {
         if (!userData?.photo_profil) return null;
-
-        // Jika sudah berbentuk URL penuh
-        if (userData.photo_profil.startsWith("http")) return userData.photo_profil;
-
-        // Jika hanya nama file → generate URL
-        return `https://tempobox-api.up.railway.app/uploads/${userData.photo_profil}`;
+    
+        const file = userData.photo_profil.replace("uploads/", "");
+    
+        return `https://tempobox-api.up.railway.app/uploads/${file}`;
     };
+
 
     const handleLogout = () => {
         const isConfirmed = window.confirm("Anda yakin ingin keluar?");
