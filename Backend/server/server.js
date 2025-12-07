@@ -17,7 +17,7 @@ const port = process.env.PORT || 3000;
 // ✅ CORS PERTAMA (SEBELUM ROUTES)
 // =========================
 app.use(cors({
-  origin: ["https://your-vercel-app.vercel.app", "http://localhost:3000"], // Ganti Vercel URL-mu
+  origin: ["https://https://tempobox.up.railway.app/", "http://localhost:3000"], // Ganti Vercel URL-mu
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
