@@ -133,8 +133,12 @@ const DashboardCustomer = () => {
                             <li className="nav-item dropdown me-4">
                                 <Link className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
                                     {userData?.photo_profil ? (
-                                        <img src={`https://tempobox-api.up.railway.app/uploads/${userData.photo_profil.replace("uploads/", "")}`}
-                                             alt="User Avatar"
+                                        <img src={
+                                                userData.photo_profil?.includes("http")
+                                                    ? userData.photo_profil.replace("http://localhost:3001", "https://tempobox-api.up.railway.app")
+                                                    : `https://tempobox-api.up.railway.app/uploads/${userData.photo_profil}`
+                                                }
+                                             alt="User profil"
                                              className="rounded-circle me-2"
                                              style={{ width: '35px', height: '35px', objectFit: "cover" }} />
                                     ) : (
@@ -207,9 +211,6 @@ const DashboardCustomer = () => {
                                                 style={{ height: "200px", objectFit: "cover" }}
                                                 alt={gudang.nama}
                                             />
-
-
-
                                             <button 
                                                 className="btn btn-light rounded-circle p-1.5 position-absolute top-0 end-0 m-3 shadow-sm" 
                                                 onClick={() => toggleFavorite(gudang.id)}
