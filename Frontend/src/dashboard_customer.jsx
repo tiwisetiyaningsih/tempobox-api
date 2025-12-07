@@ -144,7 +144,8 @@ const DashboardCustomer = () => {
                     </button>
             
                     {/* MENU */}
-                    <div className="collapse navbar-collapse justify-content-end justify-content-center text-center" id="navbarNav">
+                    <div className="collapse navbar-collapse justify-content-lg-end justify-content-center text-center" id="navbarNav">
+
                         <ul className="navbar-nav align-items-center align-items-lg-center gap-lg-3 gap-2">
             
                             {/* Menu Beranda */}
@@ -181,7 +182,7 @@ const DashboardCustomer = () => {
                                     )}
                                 </Link>
             
-                                <ul className="dropdown-menu shadow-lg p-2 text-center">
+                                <ul className="dropdown-menu dropdown-menu-start shadow-lg p-2 text-center">
                                     <li>
                                         <Link className="dropdown-item py-2" to="/profile_customer">
                                             <Person size={16} className="me-2 text-secondary" /> Profile
