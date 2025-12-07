@@ -36,32 +36,25 @@ export default function TentangKami() {
         {/* Anggota Tim */}
         <div className="row justify-content-center g-4 mb-5">
           {team.map((item, i) => (
-            <div 
-              key={i} 
-              className="col-10 col-sm-6 col-md-4 col-lg-auto"
-              style={{ width: '20%' }}
-            >
+            <div key={i} className="col-12 col-sm-6 col-md-4 col-lg-3">
               <div className="card h-100 border-0 shadow-sm">
-                
-                {/* Image */}
                 <div style={{ aspectRatio: '4/3', overflow: 'hidden' }}>
-                    <img 
-                      src={item.image} 
-                      alt={item.nama} 
-                      className="card-img-top w-100 h-100 object-fit-cover" 
-                      style={{ borderRadius: '0.375rem 0.375rem 0 0' }}
-                    />
+                  <img 
+                    src={item.image} 
+                    alt={item.nama} 
+                    className="card-img-top w-100 h-100 object-fit-cover" 
+                    style={{ borderRadius: '0.375rem 0.375rem 0 0' }}
+                  />
                 </div>
-                
-                {/* Nama dan Jabatan */}
-                <div className="card-body p-3">
-                  <h6 className="fw-bold mb-1" style={{fontSize:'18px'}}>{item.nama}</h6>
-                  <p className="text-secondary small mb-0" style={{fontSize:'18px'}}>{item.jabatan}</p>
+                <div className="card-body p-3 text-center">
+                  <h6 className="fw-bold mb-1" style={{ fontSize:'18px' }}>{item.nama}</h6>
+                  <p className="text-secondary small mb-0" style={{ fontSize:'16px' }}>{item.jabatan}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
