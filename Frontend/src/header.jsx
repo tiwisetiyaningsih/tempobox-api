@@ -11,17 +11,17 @@ export default function Header() {
       <div className="container hero-content d-flex align-items-center justify-content-between position-relative">
         {/* Teks kiri */}
         <div className="hero-text">
-          <h1 className="fw-bold mb-5" style={{fontSize:'65px'}}>
+          <h1 className="fw-bold mb-5" style={{fontSize:'54px'}}>
             Temukan Gudang Aman di Bandung
           </h1>
-          <p style={{fontSize:'24px', paddingBottom:'25px'}}>
+          <p style={{fontSize:'18px', paddingBottom:'25px'}}>
             Cari, bandingkan, dan hubungi pemilik langsung lewat <br />WhatsApp tanpa takut penipuan.
           </p>
 
           <a 
             href="#daftarGudang" 
             className="btn btn-outline-light fw-bold mt-3 justify-content-center align-items-center d-flex" 
-            style={{ border: '3px solid white', borderRadius: '8px', fontSize:'20px', height: '56px', width: '46%', textAlign: 'center', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow:'ellipsis'}}
+            style={{ border: '3px solid white', borderRadius: '8px', height: '50px', width: '40%', textAlign: 'center', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow:'ellipsis'}}
           >
             Lihat Daftar Gudang Sekarang
           </a>
