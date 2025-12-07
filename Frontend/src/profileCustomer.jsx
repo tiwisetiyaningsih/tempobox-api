@@ -41,7 +41,7 @@ const ProfileCustomer = () => {
         if (userData.photo_profil.startsWith("http")) return userData.photo_profil;
 
         // Jika hanya nama file → generate URL
-        return `http://localhost:3001/uploads/${userData.photo_profil}`;
+        return `http://tempobox-api.up.railway.app/uploads/${userData.photo_profil}`;
     };
 
     return (
