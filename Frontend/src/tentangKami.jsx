@@ -4,6 +4,7 @@ import axel from "./assets/axel.svg";
 import dwi from "./assets/dwi.svg";
 import radhiyah from "./assets/radhiyah.svg";
 import naila from "./assets/naila.svg";
+import "./hover.css";
 
 export default function TentangKami() {
   const team = [
@@ -23,7 +24,7 @@ export default function TentangKami() {
   );
 
   return (
-    <section className="py-5 text-center bg-light">
+    <section className="py-4 text-center bg-light">
       <div className="container">
         {/* Judul Utama */}
         <h2 className="fw-bold mb-3" style={{fontSize:'42px'}}>Tentang Kami</h2>
@@ -36,8 +37,8 @@ export default function TentangKami() {
         {/* Anggota Tim */}
         <div className="row justify-content-center g-4 mb-5">
           {team.map((item, i) => (
-            <div key={i} className="col-12 col-sm-6 col-md-4 col-lg-3">
-              <div className="card h-100 border-0 shadow-sm">
+            <div key={i} className="col-12 col-sm-6 col-md-4 col-lg-2">
+              <div className="card h-100 border-0 shadow-sm team-card">
                 <div style={{ aspectRatio: '4/3', overflow: 'hidden' }}>
                   <img 
                     src={item.image} 
@@ -54,7 +55,6 @@ export default function TentangKami() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
