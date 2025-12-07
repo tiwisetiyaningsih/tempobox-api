@@ -21,12 +21,12 @@ export default function Footer() {
             >
               <div 
                 className="d-flex align-items-center justify-content-center p-4 border border-success rounded-3 text-success kontak"
-                style={{ minHeight: '120px' }} 
+                style={{ minHeight: '100px' }} 
               >
                 <i className="bi bi-whatsapp fs-1 me-4" style={{color:'#25D366', fontSize: '48px'}}></i> 
                 <div className="text-start">
-                  <p className="mb-1 fw-bold" style={{ fontSize:'22px' }}>Chat WhatsApp</p>
-                  <p className="mb-0" style={{ fontSize:'18px' }}>+6281225351055</p>
+                  <p className="mb-1 fw-bold" style={{ fontSize:'18px' }}>Chat WhatsApp</p>
+                  <p className="mb-0" style={{ fontSize:'14px' }}>+6281225351055</p>
                 </div>
               </div>
             </a>
@@ -39,12 +39,12 @@ export default function Footer() {
             >
               <div 
                 className="d-flex align-items-center justify-content-center p-4 border border-danger rounded-3 text-danger kontak"
-                style={{ minHeight: '120px' }} 
+                style={{ minHeight: '100px' }} 
               >
                 <img src={email} alt="Email" className="me-4" style={{ width: '48px', height: '48px' }}/> 
                 <div className="text-start">
-                  <p className="mb-1 fw-bold" style={{ fontSize:'22px' }}>Email Kami</p>
-                  <p className="mb-0" style={{ fontSize:'18px' }}>tempobox@gmail.com</p>
+                  <p className="mb-1 fw-bold" style={{ fontSize:'18px' }}>Email Kami</p>
+                  <p className="mb-0" style={{ fontSize:'14px' }}>tempobox@gmail.com</p>
                 </div>
               </div>
             </a>
