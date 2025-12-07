@@ -41,9 +41,9 @@ const UpdateProfileCustomer = () => {
   // FOTO NAVBAR
   const getNavbarPhotoUrl = () => {
     if (!user?.photo_profil) return null;
-    return user.photo_profil.startsWith("http")
+    return user.photo_profil.startsWith("https")
       ? user.photo_profil
-      : `http://tempobox-api.up.railway.app/uploads/${user.photo_profil}`;
+      : `https://tempobox-api.up.railway.app/uploads/${user.photo_profil}`;
   };
 
   // FOTO PREVIEW FORM
@@ -51,9 +51,9 @@ const UpdateProfileCustomer = () => {
     if (formState.currentPhotoPreview) return formState.currentPhotoPreview;
 
     if (user?.photo_profil && !removePhoto) {
-      return user.photo_profil.startsWith("http")
+      return user.photo_profil.startsWith("https")
         ? user.photo_profil
-        : `http://tempobox-api.up.railway.app/uploads/${user.photo_profil}`;
+        : `https://tempobox-api.up.railway.app/uploads/${user.photo_profil}`;
     }
 
     return null;
