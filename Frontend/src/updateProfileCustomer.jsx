@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { HeartFill, Person, BoxArrowRight, PersonFill } from "react-bootstrap-icons";
 import logoTempoBox from "./assets/Logo.svg";
 import { Link, useNavigate } from "react-router-dom";
+import "./ProfileCustomer.css";
+
 
 const UpdateProfileCustomer = () => {
   const [user, setUser] = useState(null);
@@ -179,53 +181,87 @@ const handleSaveData = async (e) => {
       {/* NAVBAR */}
       <nav className="navbar navbar-expand-lg navbar-light bg-white border-bottom py-2">
         <div className="container-fluid">
-          <Link className="navbar-brand fw-bold text-primary ms-4" to="/dashboard_customer">
-            <img src={logoTempoBox} alt="TempoBox" style={{ height: "32px" }} />
-          </Link>
 
-          <div className="collapse navbar-collapse justify-content-end">
-            <ul className="navbar-nav align-items-center">
-              <li className="nav-item me-4">
-                <Link className="nav-link text-muted" to="/dashboard_customer">Beranda</Link>
-              </li>
+            {/* LOGO */}
+            <Link className="navbar-brand fw-bold text-primary ms-2" to="/dashboard_customer">
+                <img src={logoTempoBox} alt="TempoBox logo" style={{ height: "32px" }} />
+            </Link>
 
-              <li className="nav-item me-4">
-                <Link className="nav-link text-muted" to="/favorite_customer">
-                  <HeartFill size={16} className="me-1" /> Gudang Favorite
-                </Link>
-              </li>
+            {/* TOGGLER */}
+            <button
+                className="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span className="navbar-toggler-icon"></span>
+            </button>
 
-              <li className="nav-item dropdown me-4">
-                <Link className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
-                  {getNavbarPhotoUrl() ? (
-                    <img
-                      src={getNavbarPhotoUrl()}
-                      alt="avatar"
-                      className="rounded-circle me-2"
-                      style={{ width: "35px", height: "35px", objectFit: "cover" }}
-                    />
-                  ) : (
-                    <i className="bi bi-person-circle fs-2 me-2 text-secondary"></i>
-                  )}
-                </Link>
+            {/* MENU */}
+            <div
+                className="collapse navbar-collapse justify-content-lg-end justify-content-center text-center"
+                id="navbarNav"
+            >
+                <ul className="navbar-nav align-items-center gap-lg-3 gap-2">
 
-                <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
-                  <li>
-                    <Link className="dropdown-item py-2" to="/profile_customer">
-                      Profile
-                    </Link>
-                  </li>
-                  <li>
-                    <button className="dropdown-item bg-danger text-white mt-1" onClick={handleLogout}>
-                      <BoxArrowRight size={16} className="me-2" /> Keluar
-                    </button>
-                  </li>
+                    {/* BERANDA */}
+                    <li className="nav-item">
+                        <Link className="nav-link text-muted" to="/dashboard_customer">
+                            Beranda
+                        </Link>
+                    </li>
+
+                    {/* FAVORITE */}
+                    <li className="nav-item">
+                        <Link className="nav-link text-muted" to="/favorite_customer">
+                            <HeartFill className="me-1 text-muted" size={16} />
+                            Gudang Favorite
+                        </Link>
+                    </li>
+
+                    {/* PROFILE */}
+                    <li className="nav-item dropdown">
+                        <Link
+                            className="nav-link dropdown-toggle d-flex align-items-center justify-content-center p-0"
+                            to="#"
+                            data-bs-toggle="dropdown"
+                        >
+                            {getNavbarPhotoUrl() ? (
+                              <img
+                                src={getNavbarPhotoUrl()}
+                                alt="avatar"
+                                className="rounded-circle me-2"
+                                style={{ width: "35px", height: "35px", objectFit: "cover" }}
+                              />
+                            ) : (
+                              <i className="bi bi-person-circle fs-2 me-2 text-secondary"></i>
+                            )}
+                        </Link>
+
+                        <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
+                            <li>
+                                <Link className="dropdown-item py-2" to="/profile_customer">
+                                    <Person size={16} className="me-2 text-secondary" /> Profile
+                                </Link>
+                            </li>
+                            <li>
+                                <button
+                                    className="dropdown-item py-2 text-white bg-danger fw-medium rounded mt-1"
+                                    onClick={handleLogout}
+                                >
+                                    <BoxArrowRight size={16} className="me-2" /> Keluar
+                                </button>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
-              </li>
-            </ul>
-          </div>
+            </div>
         </div>
-      </nav>
+    </nav>
+
 
       {/* MAIN FORM */}
       <main className="flex-grow-1 p-4 d-flex justify-content-center">
