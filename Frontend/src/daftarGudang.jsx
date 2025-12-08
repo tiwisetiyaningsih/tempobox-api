@@ -30,7 +30,7 @@ export default function DaftarGudang() {
         <div className="row justify-content-center g-4">
           {iklan.length > 0 ? (
             iklan.map((item) => (
-              <div key={item.id} className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex">
+              <div key={item.id} className="col-12 col-sm-6 col-md-6 d-flex">
                 <div className="card shadow-sm border-0 h-100 w-100">
                   <div
                     className="position-relative"
