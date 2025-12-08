@@ -27,8 +27,9 @@ const DetailGudang = () => {
 
                 const details = [
                     { keterangan: "Lokasi", detail: data.lokasi },
-                    { keterangan: "Luas", detail: data.luas },
+                    { keterangan: "Luas", detail: data.luas + " m²" },
                     { keterangan: "Fasilitas", detail: data.fasilitas },
+                    { keterangan: "Harga", detail: "Rp " + Number(data.harga).toLocaleString("id-ID") + (data.per)},
                     { keterangan: "Status", detail: data.status_gudang },
                 ];
 
@@ -57,19 +58,30 @@ const DetailGudang = () => {
         if (!gudangData || !userData) return;
 
         const phoneNumber = '6281225351055';
+        // Ambil detail-detail gudang
         const gudangName = gudangData.name;
         const sizeDetail = gudangData.details.find(d => d.keterangan === 'Luas')?.detail || "Tidak Diketahui";
         const locationDetail = gudangData.details.find(d => d.keterangan === 'Lokasi')?.detail || "Tidak Diketahui";
+        const priceRaw = gudangData.details.find(d => d.keterangan === 'Harga')?.detail || "";
+        
+        // Pisahkan harga & per
+        let [priceOnly, perOnly] = priceRaw.replace("Rp ", "").split(" / ");
+        priceOnly = "Rp " + priceOnly;       // hasil final harga
+        perOnly = perOnly ? `/${perOnly}` : ""; // hasil final per
+
         const userName = userData.name || "Nama Pengguna"; 
 
-        const messageTemplate = 
-            `Permisi ka\n` +
-            `Saya ${userName} berminat untuk pesan gudang ${gudangName} ` +
-            `dengan ukuran ${sizeDetail} ` +
-            `yang berlokasi di ${locationDetail}`;
+        const messageTemplate =
+        `Halo min %0A` +
+        `Perkenalkan, saya *${userName}*.%0A%0A` +
+        `Saya berminat untuk menyewa gudang berikut:%0A` +
+        `• *Nama Gudang:* ${gudangName}%0A` +
+        `• *Lokasi:* ${locationDetail}%0A` +
+        `• *Luas:* ${sizeDetail}%0A` +
+        `• *Harga:* ${priceOnly}${perOnly}%0A%0A` +
+        `Mohon informasi lebih lanjut mengenai ketersediaan dan prosedur sewa gudang tersebut. Terima kasih.`;
 
-        const encodedMessage = encodeURIComponent(messageTemplate);
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${messageTemplate}`;
         window.open(whatsappUrl, '_blank');
     };
 
@@ -133,9 +145,17 @@ const DetailGudang = () => {
                                     <tr key={index}>
                                         <td className="fw-medium">{item.keterangan}</td>
                                         <td>
-                                            {item.keterangan === 'Status' && item.detail === 'Tersedia' ? (
-                                                <span className="text-success fw-bold">{item.detail}</span>
-                                            ) : item.detail}
+                                            {item.keterangan === "Status" ? (
+                                                item.detail === "Tersedia" ? (
+                                                    <span className="text-success fw-bold">{item.detail}</span>
+                                                ) : item.detail === "Terisi" ? (
+                                                    <span className="text-danger fw-bold">{item.detail}</span>
+                                                ) : (
+                                                    item.detail
+                                                )
+                                            ) : (
+                                                item.detail
+                                            )}
                                         </td>
                                     </tr>
                                 ))}
@@ -145,10 +165,17 @@ const DetailGudang = () => {
 
                     <button
                         className="btn btn-primary w-100 fw-medium py-3 mb-2"
-                        style={{ fontSize: '18px' }}
+                        style={{ fontSize: "18px" }}
                         onClick={handlePesan}
+                        disabled={
+                            gudangData.details.find((d) => d.keterangan === "Status")?.detail !== "Tersedia"
+                        }
                     >
-                        Pesan
+                        {
+                            gudangData.details.find((d) => d.keterangan === "Status")?.detail === "Tersedia"
+                                ? "Pesan"
+                                : "Gudang Sudah Terisi"
+                        }
                     </button>
                 </div>
             </main>
