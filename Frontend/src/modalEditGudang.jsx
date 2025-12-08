@@ -76,6 +76,7 @@ export default function ModalEditGudang({ data, onSuccess }) {
     formData.append("per", form.per);
     formData.append("luas", form.luas);
     formData.append("fasilitas", form.fasilitas);
+    formData.append("status_gudang", form.status_gudang);
     formData.append("deskripsi", form.deskripsi);
 
     // FOTO BARU / LAMA
@@ -89,7 +90,7 @@ export default function ModalEditGudang({ data, onSuccess }) {
 
     try {
       const res = await fetch(
-        `http://localhost:3001/gudang/${data.id}`,
+        `https://tempobox-api.up.railway.app/gudang/${data.id}`,
         {
           method: "PUT",
           body: formData,
@@ -175,15 +176,14 @@ export default function ModalEditGudang({ data, onSuccess }) {
                     name="per"
                     value={form.per || ""}
                     onChange={handleChange}
-                    className="form-control"
+                    className="form-select form-select-sm"
                   >
-                    <option value="/hari">/hari</option>
-                    <option value="/bulan">/bulan</option>
-                    <option value="/tahun">/tahun</option>
+                    <option value="/hari">hari</option>
+                    <option value="/bulan">bulan</option>
+                    <option value="/tahun">tahun</option>
                   </select>
                 </div>
               </div>
-
               {/* ROW 3 */}
               <div className="row mb-3">
                 <div className="col-md-6">
@@ -209,7 +209,7 @@ export default function ModalEditGudang({ data, onSuccess }) {
 
               {/* ROW DESKRIPSI */}
               <div className="row mb-3">
-                <div className="col-12">
+                <div className="col-md-6">
                   <label>Deskripsi</label>
                   <textarea
                     name="deskripsi"
@@ -218,6 +218,18 @@ export default function ModalEditGudang({ data, onSuccess }) {
                     value={form.deskripsi || ""}
                     onChange={handleChange}
                   />
+                </div>
+                <div className="col-md-6">
+                  <label>Status</label>
+                  <select
+                    name="status_gudang"
+                    value={form.status_gudang || ""}
+                    onChange={handleChange}
+                    className="form-select form-select-sm"
+                  >
+                    <option value="Terisi">Terisi</option>
+                    <option value="Tersedia">Tersedia</option>
+                  </select>
                 </div>
               </div>
 
