@@ -87,7 +87,7 @@ export default function ModalDetailGudang({ show, onClose, data }) {
                 <p><b>Luas:</b> {data.luas} m²</p>
                 <p><b>Status:</b> 
                   <span className="badge bg-success ms-2">
-                    {data.status}
+                    {data.status_gudang}
                   </span>
                 </p>
               </div>
