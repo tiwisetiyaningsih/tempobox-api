@@ -478,14 +478,21 @@ app.put("/gudang/:id", upload.fields([
 
 // ----------- DELETE GUDANG -------------
   app.delete("/gudang/:id", async (req, res) => {
+    console.log("DELETE REQUEST MASUK, ID =", req.params.id);
+  
     try {
       const { id } = req.params;
-      await db.execute("DELETE FROM gudang WHERE id = ?", [id]);
+      const [result] = await db.execute("DELETE FROM gudang WHERE id = ?", [id]);
+      
+      console.log("DELETE RESULT:", result);
+  
       res.json({ message: "Gudang berhasil dihapus" });
     } catch (err) {
+      console.error("DELETE ERROR:", err);
       res.status(500).json({ message: "Gagal menghapus gudang" });
     }
   });
+
 
 
 // =====================================================
