@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { HeartFill, Person, BoxArrowRight } from "react-bootstrap-icons"; 
 import logoTempoBox from './assets/Logo.svg';
 import { Link, useNavigate } from "react-router-dom";
+import "./ProfileCustomer.css";
 
 const ProfileCustomer = () => {
 
