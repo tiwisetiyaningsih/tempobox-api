@@ -96,7 +96,7 @@ function DashboardAdmin() {
 
         {/* TOPBAR */}
         <nav className="navbar navbar-light bg-white border-bottom p-3">
-          <div className="container-fluid">
+          <div className="container-fluid navbar-responsive">
             <span className="navbar-brand mb-0 ms-2 h1">Dashboard Admin</span>
 
             <div className="d-flex align-items-center">
