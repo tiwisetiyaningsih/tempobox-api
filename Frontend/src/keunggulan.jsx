@@ -6,7 +6,7 @@ export default function Keunggulan() {
   const features = [
     {
       icon: "bi-whatsapp",
-      title: "Kontak Langsung Pemilik",
+      title: "Kontak Langsung",
     },
     {
       icon: "bi-check-circle",
