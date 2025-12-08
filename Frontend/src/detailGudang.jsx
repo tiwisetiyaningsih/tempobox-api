@@ -29,7 +29,7 @@ const DetailGudang = () => {
                     { keterangan: "Lokasi", detail: data.lokasi },
                     { keterangan: "Luas", detail: data.luas },
                     { keterangan: "Fasilitas", detail: data.fasilitas },
-                    { keterangan: "Status", detail: data.status },
+                    { keterangan: "Status", detail: data.status_gudang },
                 ];
 
                 setGudangData({
