@@ -55,3 +55,65 @@
 .content-area {
   overflow-y: auto; /* Memungkinkan scrolling jika konten terlalu panjang */
 }
+
+/* ===== BASE SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  height: 100vh;
+  background: white;
+  border-right: 1px solid #ddd;
+
+  padding: 20px 15px;
+  z-index: 9999;
+
+  /* Sidebar bisa geser & bisa mengecil */
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+/* ===== SAAT TERBUKA ===== */
+.sidebar-open {
+  width: 240px;
+  transform: translateX(0);   /* tampil */
+}
+
+/* ===== SAAT TERTUTUP ===== */
+.sidebar-closed {
+  width: 70px;
+  transform: translateX(-240px); 
+  /* geser ke kiri sedikit, tapi masih terlihat toggle btn */
+}
+
+/* ===== TOGGLE BUTTON ===== */
+.sidebar-toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: -18px;
+
+  width: 36px;
+  height: 36px;
+
+  background: white;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 10000;
+}
+
+/* ===== HIDE TEXT SAAT CLOSED ===== */
+.sidebar-closed .nav-link span {
+  display: none;
+}
+
+/* ===== ICON SELALU MUNCUL ===== */
+.nav-link i {
+  font-size: 1.2rem;
+}
