@@ -52,67 +52,82 @@ const ProfileCustomer = () => {
                 <div className="container-fluid">
 
                     {/* LOGO */}
-                    <Link className="navbar-brand fw-bold text-primary ms-4" to="/dashboard_customer">
-                        <img src={logoTempoBox} alt="TempoBox logo" style={{ height: '32px' }} />
+                    <Link className="navbar-brand fw-bold text-primary ms-2" to="/dashboard_customer">
+                        <img src={logoTempoBox} alt="TempoBox logo" style={{ height: "32px" }} />
                     </Link>
 
-                    {/* MENU KANAN */}
-                    <div className="collapse navbar-collapse justify-content-end">
-                        <ul className="navbar-nav align-items-center">
+                    {/* TOGGLER */}
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
 
-                            <li className="nav-item me-4">
-                                <Link className="nav-link text-decoration-none text-muted" to="/dashboard_customer">
+                    {/* MENU */}
+                    <div
+                        className="collapse navbar-collapse justify-content-lg-end justify-content-center text-center"
+                        id="navbarNav"
+                    >
+                        <ul className="navbar-nav align-items-center gap-lg-3 gap-2">
+
+                            {/* BERANDA */}
+                            <li className="nav-item">
+                                <Link className="nav-link text-primary fw-semibold" to="/dashboard_customer">
                                     Beranda
                                 </Link>
                             </li>
 
-                            <li className="nav-item me-4">
-                                <Link className="nav-link text-decoration-none text-muted" to="/favorite_customer">
-                                    <HeartFill className="me-1 text-muted" size={16} /> Gudang Favorite
+                            {/* FAVORITE */}
+                            <li className="nav-item">
+                                <Link className="nav-link text-muted" to="/favorite_customer">
+                                    <HeartFill className="me-1 text-muted" size={16} />
+                                    Gudang Favorite
                                 </Link>
                             </li>
 
-                            {/* PROFILE DROPDOWN */}
-                            <li className="nav-item dropdown me-4">
-                                <Link className="nav-link dropdown-toggle d-flex align-items-center p-0" to="#" data-bs-toggle="dropdown">
-
-                                    {/* FOTO PROFIL (TIDAK UBAH UI, HANYA LOGIC) */}
+                            {/* PROFILE */}
+                            <li className="nav-item dropdown">
+                                <Link
+                                    className="nav-link dropdown-toggle d-flex align-items-center justify-content-center p-0"
+                                    to="#"
+                                    data-bs-toggle="dropdown"
+                                >
                                     {getPhotoUrl() ? (
                                         <img
                                             src={getPhotoUrl()}
                                             alt="User Avatar"
                                             className="rounded-circle me-2"
-                                            style={{ width: '35px', height: '35px', objectFit: "cover" }}
+                                            style={{ width: "35px", height: "35px", objectFit: "cover" }}
                                         />
                                     ) : (
                                         <i className="bi bi-person-circle fs-2 me-2 text-secondary"></i>
                                     )}
-
                                 </Link>
 
                                 <ul className="dropdown-menu dropdown-menu-end p-2 shadow-lg">
-
                                     <li>
-                                        <Link className="dropdown-item py-2 rounded" to="/profile_customer">
+                                        <Link className="dropdown-item py-2" to="/profile_customer">
                                             <Person size={16} className="me-2 text-secondary" /> Profile
                                         </Link>
                                     </li>
-
                                     <li>
-                                        <button 
-                                            className="dropdown-item py-2 rounded text-white bg-danger mt-1 fw-medium"
+                                        <button
+                                            className="dropdown-item py-2 text-white bg-danger fw-medium rounded mt-1"
                                             onClick={handleLogout}
                                         >
                                             <BoxArrowRight size={16} className="me-2" /> Keluar
                                         </button>
                                     </li>
-
                                 </ul>
                             </li>
-
                         </ul>
                     </div>
-
                 </div>
             </nav>
 
@@ -166,7 +181,10 @@ const ProfileCustomer = () => {
 
                                 <div className="mb-2">
                                     <span className="text-muted d-block small">Email</span>
-                                    <span className="fw-semibold text-dark">{userData?.email || "-"}</span>
+                                    <span className="fw-semibold text-dark text-ellipsis">
+                                        {userData?.email || "-"}
+                                    </span>
+
                                 </div>
 
                                 <div className="mb-2">
