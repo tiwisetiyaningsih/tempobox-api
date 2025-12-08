@@ -30,7 +30,7 @@ export default function DaftarGudang() {
         <div className="row justify-content-center g-4">
           {iklan.length > 0 ? (
             iklan.map((item) => (
-              <div key={item.id} className="col-12 col-sm-6 col-md-3 d-flex">
+              <div key={item.id} className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex">
                 <div className="card shadow-sm border-0 h-100 w-100">
                   <div
                     className="position-relative"
@@ -39,6 +39,7 @@ export default function DaftarGudang() {
                       backgroundColor: "#e9ecef",
                       borderTopLeftRadius: "0.375rem",
                       borderTopRightRadius: "0.375rem",
+                      height: "260px",
                       overflow: "hidden",
                     }}
                   >
@@ -49,7 +50,7 @@ export default function DaftarGudang() {
                           : "https://via.placeholder.com/300x200?text=No+Image"
                       }
                       className="card-img-top"
-                      style={{ height: "200px", objectFit: "cover" }}
+                      style={{ height: "260px", objectFit: "cover" }}
                       alt={item.nama_gudang}
                     />
                   </div>
