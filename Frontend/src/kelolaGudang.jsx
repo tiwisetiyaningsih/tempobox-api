@@ -164,14 +164,14 @@ export default function KelolaGudang() {
                     <td className="isi-center">
                       <span
                         className={`badge status-badge ${
-                          gudang.status === "Tersedia"
+                          gudang.status_gudang === "Tersedia"
                             ? "status-tersedia"
-                            : gudang.status === "Terisi"
+                            : gudang.status_gudang === "Terisi"
                             ? "status-terisi"
                             : "status-default"
                         }`}
                       >
-                        {gudang.status}
+                        {gudang.status_gudang}
                       </span>
                     </td>
 
