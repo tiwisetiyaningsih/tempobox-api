@@ -81,15 +81,15 @@ export default function DaftarGudang() {
                           className="fw-medium"
                           style={{
                             color:
-                              item.status === "Tersedia"
+                              item.status_gudang === "Tersedia"
                                 ? "green"
-                                : item.status === "Terisi"
+                                : item.status_gudang === "Terisi"
                                 ? "red"
                                 : "black",
                           }}
                         >
                           {" "}
-                          {item.status}
+                          {item.status_gudang}
                         </span>
                       </p>
                     </div>
@@ -101,8 +101,8 @@ export default function DaftarGudang() {
                         style={{
                           fontSize: "14px",
                           pointerEvents:
-                            item.status === "Terisi" ? "none" : "auto",
-                          opacity: item.status === "Terisi" ? 0.6 : 1,
+                            item.status_gudang === "Terisi" ? "none" : "auto",
+                          opacity: item.status_gudang === "Terisi" ? 0.6 : 1,
                         }}
                       >
                         Lihat Detail
