@@ -22,16 +22,25 @@
 }
 
 .hero-btn {
-  border: 2px solid white;
+  border: 3px solid white;
   border-radius: 8px;
-  height: 45px;
-  width: 300px;
-  font-size: 18px;
+  height: 50px;
+  width: 40%;            /* ukuran default di desktop */
+  text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+/* RESPONSIVE HP */
+@media (max-width: 576px) {
+  .hero-btn {
+    width: 100% !important;    /* tombol melebar penuh */
+    font-size: 16px;
+    height: 45px;
+  }
+}
+
 
 .hero-btn:hover {
   transform: translateY(-3px);
