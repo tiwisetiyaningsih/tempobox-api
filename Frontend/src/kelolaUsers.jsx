@@ -280,7 +280,7 @@ function KelolaUsers() {
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Role</th>
-                        <th>Aksi</th>
+                        <th style={{width: '100px'}}>Aksi</th>
                     </tr>
                     </thead>
 
@@ -311,36 +311,36 @@ function KelolaUsers() {
                                 <td>{u.phone}</td>
                                 <td>{u.role}</td>
                                 <td>
-                                <div className="d-flex gap-1 justify-content-center">
-                                    <button 
-                                    className="btn btn-sm aksi-btn-icon" 
-                                    title="Edit"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalEditUser"
-                                    onClick={() => {
-                                        setSelectedUser({ ...u });
-                                        setEditPhoto(null);
-                                        setEditPhotoPreview(
-                                            u.photo_profil?.startsWith("https")
-                                                ? u.photo_profil
-                                                : `https://tempobox-api.up.railway.app/uploads/${u.photo_profil}`
-                                        );
-                                    }}
+                                    <div className="d-flex gap-1 justify-content-center">
+                                        <button 
+                                        className="btn btn-sm aksi-btn-icon" 
+                                        title="Edit"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalEditUser"
+                                        onClick={() => {
+                                            setSelectedUser({ ...u });
+                                            setEditPhoto(null);
+                                            setEditPhotoPreview(
+                                                u.photo_profil?.startsWith("https")
+                                                    ? u.photo_profil
+                                                    : `https://tempobox-api.up.railway.app/uploads/${u.photo_profil}`
+                                            );
+                                        }}
 
 
-                                    >
-                                    <i className="bi bi-pencil-square text-success"></i>
-                                    </button>
+                                        >
+                                        <i className="bi bi-pencil-square text-success"></i>
+                                        </button>
 
-                                    <button 
-                                    className="btn btn-sm aksi-btn-icon" title="Hapus"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalHapusUser"
-                                    onClick={() => setSelectedUser(u)}
-                                    >
-                                    <i className="bi bi-trash text-danger"></i>
-                                    </button>
-                                </div>
+                                        <button 
+                                        className="btn btn-sm aksi-btn-icon" title="Hapus"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalHapusUser"
+                                        onClick={() => setSelectedUser(u)}
+                                        >
+                                        <i className="bi bi-trash text-danger"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))
