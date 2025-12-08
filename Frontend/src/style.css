@@ -27,6 +27,7 @@
   height: 50px;
   max-width: 350px;            /* ukuran default di desktop */
   text-align: center;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 12px 20px;
