@@ -25,11 +25,12 @@
   border: 3px solid white;
   border-radius: 8px;
   height: 50px;
-  max-width: 300px;            /* ukuran default di desktop */
+  max-width: 350px;            /* ukuran default di desktop */
   text-align: center;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding: 12px 20px;
+  width: 100%;
 }
 
 /* RESPONSIVE HP */
