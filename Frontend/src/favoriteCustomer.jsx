@@ -285,7 +285,6 @@ const FavoriteCustomer = () => {
                                             <button
                                                 className="btn btn-primary w-100 fw-medium"
                                                 onClick={() => handleLihatDetail(gudang.id)}
-                                                disabled={gudang.status_gudang === "Terisi" || gudang.status_gudang === "Penuh"}
                                             >
                                                 Lihat Detail
                                             </button>
