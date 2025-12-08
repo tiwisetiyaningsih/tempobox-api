@@ -193,7 +193,7 @@ function AdminHome() {
                     </td>
 
                     {/* Aksi */}
-                     <td>
+                     <td className='text-center'>
                       {iklanData ? (
                         <button
                           className="btn btn-danger btn-sm"
