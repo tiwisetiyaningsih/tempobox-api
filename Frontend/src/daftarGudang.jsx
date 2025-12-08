@@ -99,10 +99,7 @@ export default function DaftarGudang() {
                         to="/login"
                         className="btn btn-primary btn-sm"
                         style={{
-                          fontSize: "14px",
-                          pointerEvents:
-                            item.status_gudang === "Terisi" ? "none" : "auto",
-                          opacity: item.status_gudang === "Terisi" ? 0.6 : 1,
+                          fontSize: "14px"
                         }}
                       >
                         Lihat Detail
