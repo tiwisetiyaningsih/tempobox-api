@@ -79,7 +79,7 @@ const ProfileCustomer = () => {
 
                             {/* BERANDA */}
                             <li className="nav-item">
-                                <Link className="nav-link text-primary fw-semibold" to="/dashboard_customer">
+                                <Link className="nav-link text-muted" to="/dashboard_customer">
                                     Beranda
                                 </Link>
                             </li>
