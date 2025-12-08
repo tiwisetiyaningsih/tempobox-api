@@ -287,7 +287,6 @@ const DashboardCustomer = () => {
                                             <button
                                                 className="btn btn-primary w-100 fw-medium"
                                                 onClick={() => handleLihatDetail(gudang.id)}
-                                                disabled={gudang.status_gudang === "Terisi"}
                                             >
                                                 Lihat Detail
                                             </button>
