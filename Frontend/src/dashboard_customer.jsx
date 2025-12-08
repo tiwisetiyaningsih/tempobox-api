@@ -165,7 +165,7 @@ const DashboardCustomer = () => {
                             {/* Menu Favorite */}
                             <li className="nav-item me-4">
                                 <Link className="nav-link text-muted" to="/favorite_customer">
-                                    <HeartFill size={16} className="me-1 text-muted" size={16} />
+                                    <HeartFill size={16} className="me-1 text-muted" />
                                     Gudang Favorite
                                 </Link>
                             </li>
@@ -279,15 +279,15 @@ const DashboardCustomer = () => {
 
                                             <p className="text-muted small mb-3">
                                                 Status:  
-                                                <span className={`fw-medium ${gudang.status === "Tersedia" ? "text-success" : "text-danger"}`}>
-                                                    {" "+gudang.status}
+                                                <span className={`fw-medium ${gudang.status_gudang === "Tersedia" ? "text-success" : "text-danger"}`}>
+                                                    {" "+gudang.status_gudang}
                                                 </span>
                                             </p>
 
                                             <button
                                                 className="btn btn-primary w-100 fw-medium"
                                                 onClick={() => handleLihatDetail(gudang.id)}
-                                                disabled={gudang.status === "Terisi"}
+                                                disabled={gudang.status_gudang === "Terisi"}
                                             >
                                                 Lihat Detail
                                             </button>
