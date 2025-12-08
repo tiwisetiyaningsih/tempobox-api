@@ -277,15 +277,15 @@ const FavoriteCustomer = () => {
 
                                             <p className="text-muted small mb-3">
                                                 Status:
-                                                <span className={`fw-medium ${gudang.status === "Tersedia" ? "text-success" : "text-danger"}`}>
-                                                    {" " + gudang.status}
+                                                <span className={`fw-medium ${gudang.status_gudang === "Tersedia" ? "text-success" : "text-danger"}`}>
+                                                    {" " + gudang.status_gudang}
                                                 </span>
                                             </p>
 
                                             <button
                                                 className="btn btn-primary w-100 fw-medium"
                                                 onClick={() => handleLihatDetail(gudang.id)}
-                                                disabled={gudang.status === "Terisi" || gudang.status === "Penuh"}
+                                                disabled={gudang.status_gudang === "Terisi" || gudang.status_gudang === "Penuh"}
                                             >
                                                 Lihat Detail
                                             </button>
