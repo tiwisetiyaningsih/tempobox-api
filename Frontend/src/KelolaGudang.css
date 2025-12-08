@@ -138,7 +138,7 @@ h3 {
 
 .custom-table th:nth-child(6),
 .custom-table td:nth-child(6) {
-  width: 110px !important; /* Luas */
+  width: 110px; /* Luas */
   text-align: center;
 }
 
