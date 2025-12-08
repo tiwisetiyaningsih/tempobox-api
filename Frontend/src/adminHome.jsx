@@ -78,8 +78,8 @@ function AdminHome() {
 
 
   const jumlahIklan = iklan.length;
-  const jumlahTersedia = gudang.filter(g => g.status === "Tersedia").length;
-  const jumlahTerisi = gudang.filter(g => g.status === "Terisi").length;
+  const jumlahTersedia = gudang.filter(g => g.status_gudang === "Tersedia").length;
+  const jumlahTerisi = gudang.filter(g => g.status_gudang === "Terisi").length;
 
   const filteredGudang = gudang.filter(g => g.nama.toLowerCase().includes(searchTerm.toLowerCase()));
 
@@ -181,14 +181,14 @@ function AdminHome() {
                     <td className="isi-center">
                       <span
                         className={`badge status-badge ${
-                          g.status === "Tersedia"
+                          g.status_gudang === "Tersedia"
                             ? "status-tersedia"
-                            : g.status === "Terisi"
+                            : g.status_gudang === "Terisi"
                             ? "status-terisi"
                             : "status-default"
                         }`}
                       >
-                        {g.status}
+                        {g.status_gudang}
                       </span>
                     </td>
 
