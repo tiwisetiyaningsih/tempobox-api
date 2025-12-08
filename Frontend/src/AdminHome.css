@@ -69,7 +69,6 @@
   ================================ */
   .custom-table {
     width: max_content;
-    min-width: 1000px; /* BIAR TIDAK MAKSA LAYOUT */
     border-collapse: collapse;
     font-size: 14px;
     white-space: nowrap;
