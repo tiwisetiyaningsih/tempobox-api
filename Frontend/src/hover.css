@@ -4,7 +4,7 @@
 }
 
 .team-card:hover {
-    transform: scale(1.2); /* Membesar sedikit */
+    transform: scale(0.9); /* Membesar sedikit */
     box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Tambah shadow */
 }
 
