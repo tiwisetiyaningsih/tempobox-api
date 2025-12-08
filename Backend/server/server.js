@@ -391,7 +391,7 @@ app.post("/gudang", upload.fields([
         per,
         luas,
         fasilitas,
-        deskripsi
+        deskripsi,
       } = req.body;
   
       const gambar1 = req.files?.gambar_1?.[0]?.filename || null;
@@ -400,7 +400,7 @@ app.post("/gudang", upload.fields([
   
       const sql = `
         INSERT INTO gudang 
-        (gambar_1, gambar_2, gambar_3, nama, deskripsi, lokasi, harga, per, luas, fasilitas, status)
+        (gambar_1, gambar_2, gambar_3, nama, deskripsi, lokasi, harga, per, luas, fasilitas, status_gudang)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Tersedia')
       `;
     
@@ -414,7 +414,7 @@ app.post("/gudang", upload.fields([
         harga,
         per,
         luas,
-        fasilitas
+        fasilitas,
       ]);
   
       res.status(201).json({ message: "Gudang berhasil ditambahkan" });
@@ -434,7 +434,7 @@ app.put("/gudang/:id", upload.fields([
   ]), async (req, res) => {
     try {
       const { id } = req.params;
-      const { nama, lokasi, harga, per, luas, fasilitas, deskripsi, gambar_1_lama, gambar_2_lama, gambar_3_lama } = req.body;
+      const { nama, lokasi, harga, per, luas, fasilitas, status_gudang, deskripsi, gambar_1_lama, gambar_2_lama, gambar_3_lama } = req.body;
   
       const gambar1 = req.files?.gambar_1?.[0]?.filename || gambar_1_lama;
       const gambar2 = req.files?.gambar_2?.[0]?.filename || gambar_2_lama;
@@ -442,7 +442,7 @@ app.put("/gudang/:id", upload.fields([
   
       const sql = `
       UPDATE gudang SET 
-      nama=?, lokasi=?, harga=?, per=?, luas=?, fasilitas=?, deskripsi=?,
+      nama=?, lokasi=?, harga=?, per=?, luas=?, fasilitas=?, status_gudang=?, deskripsi=?,
       gambar_1=?, gambar_2=?, gambar_3=?
       WHERE id=?
     `;
@@ -454,6 +454,7 @@ app.put("/gudang/:id", upload.fields([
       per,
       luas,
       fasilitas,
+      status_gudang,
       deskripsi,
       gambar1,
       gambar2,
@@ -576,7 +577,7 @@ app.get('/iklan', async (req, res) => {
                 i.id, i.id_admin, u.name AS nama_admin,
                 i.id_gudang, 
                 g.nama AS nama_gudang,
-                g.lokasi, g.harga, g.status,
+                g.lokasi, g.harga, g.status_gudang,
                 g.per, g.luas, g.fasilitas,
                 g.gambar_1, g.gambar_2, g.gambar_3,
                 i.created_at, i.updated_at
