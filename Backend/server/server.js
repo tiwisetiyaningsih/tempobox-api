@@ -477,21 +477,22 @@ app.put("/gudang/:id", upload.fields([
 });
 
 // ----------- DELETE GUDANG -------------
-  app.delete("/gudang/:id", async (req, res) => {
-    console.log("DELETE REQUEST MASUK, ID =", req.params.id);
-  
-    try {
-      const { id } = req.params;
-      const [result] = await db.execute("DELETE FROM gudang WHERE id = ?", [id]);
-      
-      console.log("DELETE RESULT:", result);
-  
-      res.json({ message: "Gudang berhasil dihapus" });
-    } catch (err) {
-      console.error("DELETE ERROR:", err);
-      res.status(500).json({ message: "Gagal menghapus gudang" });
-    }
-  });
+app.delete("/gudang/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // Hapus iklan yang terkait
+    await db.execute("DELETE FROM iklan WHERE id_gudang = ?", [id]);
+
+    // Hapus gudang
+    await db.execute("DELETE FROM gudang WHERE id = ?", [id]);
+
+    res.json({ message: "Gudang berhasil dihapus" });
+  } catch (err) {
+    console.error("DELETE ERROR:", err);
+    res.status(500).json({ message: "Gagal menghapus gudang" });
+  }
+});
 
 
 
