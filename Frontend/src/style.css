@@ -1,7 +1,7 @@
 .hero-section {
   position: relative;
   background: url('./assets/background.png') center/cover no-repeat;
-  padding: 100px 0;
+  padding: 100px 0px;
   overflow: hidden;
 }
 
@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  max-width: 100%;
+  /* max-width: 100%; */
   margin-left: -20px;
   padding-left: 80px;
 }
@@ -26,19 +26,19 @@
   border: 3px solid white;
   border-radius: 8px;
   height: 50px;
-  max-width: 350px;            /* ukuran default di desktop */
+  width: 400px;            /* ukuran default di desktop */
   text-align: center;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 12px 20px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* RESPONSIVE HP */
 @media (max-width: 576px) {
   .hero-btn {
-    width: 100% !important;    /* tombol melebar penuh */
+    width: 100% !important;
     font-size: 16px;
     height: 45px;
   }
@@ -51,11 +51,11 @@
 }
 
 /* Responsive */
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .hero-btn {
     width: 70% !important;
   }
-}
+} */
 
 @media (max-width: 576px) {
   .hero-text h1 {
