@@ -37,9 +37,12 @@ setInterval(() => {
 /* =========================
    ✅ ENSURE UPLOAD FOLDER
 ========================= */
-if (!fs.existsSync("uploads")) {
-  fs.mkdirSync("uploads");
+const uploadPath = path.join(__dirname, "uploads");
+
+if (!fs.existsSync(uploadPath)) {
+  fs.mkdirSync(uploadPath, { recursive: true });
 }
+
 
 /* =========================
    ✅ MYSQL CONNECTION TEST
@@ -55,7 +58,7 @@ db.getConnection()
 
 app.options("*", cors()); // ✅ FIX 405 PREFLIGHT
 
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use((req, res, next) => {
   req.serverBaseUrl = `${req.protocol}://${req.get("host")}`;
@@ -71,14 +74,14 @@ app.get("/", (req, res) => {
 // ========================
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/"); 
+    cb(null, path.join(__dirname, "uploads")); 
   },
   filename: function (req, file, cb) {
-    const uniqueName =
-      Date.now() + "-" + Math.round(Math.random() * 1e9);
-    cb(null, uniqueName + path.extname(file.originalname));
-  },
+    const unique = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(null, unique + path.extname(file.originalname));
+  }
 });
+
 
 const upload = multer({ storage: storage });
 
